@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+@import '~bootstrap/scss/_functions';
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/_mixins';
+@import '~bootstrap/scss/_grid';
+@import '~bootstrap/scss/utilities/_spacing';
+
+@import '~font-awesome/css/font-awesome.css';
+
+@include mat-core();
+
+$my-theme-primary: mat-palette($mat-indigo, 700, 300, 900);
+$my-theme-accent: mat-palette($mat-light-blue);
+$my-theme-warn: mat-palette($mat-deep-orange, A200);
+
+$my-theme: mat-light-theme(
+    $my-theme-primary,
+    $my-theme-accent,
+    $my-theme-warn
+);
+
+@include angular-material-theme($my-theme);
+
+body {
+  background-image: url('./assets/login_bg.jpg');
+  background-size: 100%;
+}
