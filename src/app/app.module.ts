@@ -1,12 +1,11 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from './core/core.module';
+import { MainModule } from './main/main.module';
 import { NgModule } from '@angular/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,23 +14,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+    AppRoutingModule,
+    SharedModule,
+    CoreModule,
+    MainModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}

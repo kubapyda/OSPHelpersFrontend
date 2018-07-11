@@ -1,0 +1,36 @@
+
+.osp-logo {
+  background: url('../../../assets/logo_osp.png');
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px auto;
+}
+
+form {
+  .login-input {
+    position: relative;
+    margin-bottom: 15px;
+    i {
+      font-size: 25px;
+      position: absolute;
+      top: 15px;
+      left: 3px;
+    }
+    .full-width {
+      margin-left: 10%;
+      width: 90%;
+    }
+  }
+  .login-btn {
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .forgot-password {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+  }
+}

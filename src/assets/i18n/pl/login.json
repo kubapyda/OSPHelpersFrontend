@@ -1,0 +1,8 @@
+{
+  "login": {
+    "username": "Użytkownik",
+    "password": "Hasło",
+    "login": "Zaloguj",
+    "forgotPassword": "Nie pamiętasz hasła?"
+  }
+}
