@@ -1,0 +1,14 @@
+<mat-toolbar class="navbar">
+  <mat-toolbar-row>
+    <img src="../../../assets/logo_osp.png" class="osp" alt="">
+    <span translate="navbar.title"></span>
+    <button [matMenuTriggerFor]="userSettingsMenu" class="user-settings">
+      <i class="fa fa-user"></i>
+    </button>
+    <mat-menu #userSettingsMenu="matMenu">
+      <button mat-menu-item>
+        <span translate="navbar.menu.changePassword"></span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,14 +1,12 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LanguageService, TranslateResolver } from '@app/core/language';
+import { LoginService, UserAccessGuard } from '@app/core/auth';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { CommonModule } from '@angular/common';
-import { LanguageService } from './language/language.service';
-import { LoginService } from './auth/login.service';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateResolver } from './language/translate-resolver';
-import { UserAccessGuard } from './auth/user-access.service';
 
 @NgModule({
   imports: [

@@ -3,7 +3,7 @@ import { MatButtonModule, MatCardModule, MatInputModule } from '@angular/materia
 
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login.routing';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@app/shared';
 
 @NgModule({
   imports: [

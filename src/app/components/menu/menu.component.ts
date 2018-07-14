@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 
-import { LoginService } from '../../core/auth/login.service';
-import { MenuPosition } from '../../shared/model/menu-position';
+import { LoginService } from '@app/core/auth';
+import { MenuPosition } from '@app/shared/model';
 import { MenuService } from './menu.service';
 
 @Component({

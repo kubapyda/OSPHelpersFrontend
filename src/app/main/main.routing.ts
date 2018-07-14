@@ -1,7 +1,7 @@
 import { MainComponent } from './main.component';
 import { Routes } from '@angular/router';
-import { TranslateResolver } from '../core/language/translate-resolver';
-import { UserAccessGuard } from './../core/auth/user-access.service';
+import { TranslateResolver } from '@app/core/language';
+import { UserAccessGuard } from '@app/core/auth';
 
 export const MAIN_ROUTES: Routes = [{
   path: '',

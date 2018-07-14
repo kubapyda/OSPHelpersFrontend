@@ -27,3 +27,10 @@ body {
   background-color: #FDF3E7;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.mat-menu-panel {
+  background: lighten($color: #3B3738, $amount: 10);
+  .mat-menu-item {
+    color: #fff;
+  }
+}

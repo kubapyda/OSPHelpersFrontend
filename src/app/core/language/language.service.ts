@@ -1,11 +1,11 @@
 import * as _ from 'lodash';
 
-import { Observable, forkJoin, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable, forkJoin } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class LanguageService {

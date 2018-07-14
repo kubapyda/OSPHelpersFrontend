@@ -1,0 +1,30 @@
+.navbar {
+  background: #3B3738;
+  color: #fff;
+  position: relative;
+  .osp {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  span {
+    font-weight: 600;
+    height: 30px;
+    float: left;
+    vertical-align: middle;
+  }
+  .user-settings {
+    position: absolute;
+    right: 25px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    &:focus {
+      outline: none;
+    }
+  }
+}

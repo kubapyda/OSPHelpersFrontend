@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MenuPosition } from '../../shared/model/menu-position';
+import { MenuPosition } from '@app/shared/model';
 
 @Injectable()
 export class MenuService {

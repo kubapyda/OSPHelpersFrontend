@@ -2,7 +2,7 @@ import { Route, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login.component';
 import { NgModule } from "@angular/core";
-import { TranslateResolver } from './../../core/language/translate-resolver';
+import { TranslateResolver } from '@app/core/language';
 
 const route: Route = {
   path: '',
