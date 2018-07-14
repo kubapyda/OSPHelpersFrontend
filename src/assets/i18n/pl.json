@@ -4,5 +4,15 @@
     "password": "Hasło",
     "login": "Zaloguj",
     "forgotPassword": "Nie pamiętasz hasła?"
+  },
+  "menu": {
+    "firefighters": "Strażacy",
+    "departures": "Wyjazdy",
+    "cars": "Pojazdy",
+    "medicalExamination": "Badania lekarskie",
+    "courses": "Kursy",
+    "fees": "Składki",
+    "equipmentInvetory": "Inwentarz sprzętu",
+    "logout": "Wyloguj"
   }
 }

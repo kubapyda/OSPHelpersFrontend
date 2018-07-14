@@ -23,6 +23,7 @@ $my-theme: mat-light-theme(
 @include angular-material-theme($my-theme);
 
 body {
-  background-image: url('./assets/login_bg.jpg');
-  background-size: 100%;
+  margin: 0;
+  background-color: #FDF3E7;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

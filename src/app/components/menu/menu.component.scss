@@ -1,0 +1,31 @@
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 290px;
+  height: 100vh;
+  background-color: #C63D0F;
+  color: #fff;
+  font-size: 22px;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li{
+      padding: 12px 0px 12px 60px;
+      position: relative;
+      &:hover {
+        background-color: lighten($color: #c63d0f, $amount: 15);
+      }
+      img {
+        position: absolute;
+        left: 5px;
+        top: 0;
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}
+

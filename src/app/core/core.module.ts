@@ -3,6 +3,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { CommonModule } from '@angular/common';
 import { LanguageService } from './language/language.service';
+import { LoginService } from './auth/login.service';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -26,6 +27,7 @@ import { UserAccessGuard } from './auth/user-access.service';
   exports: [RouterModule],
   providers: [
     LanguageService,
+    LoginService,
     TranslateResolver,
     UserAccessGuard
   ]

@@ -1,0 +1,12 @@
+<section class="menu">
+  <ul>
+    <li *ngFor="let item of menu">
+      <img [src]="item.icon" alt="">
+      <a [routerLink]="['']" [translate]="item.translation"></a>
+    </li>
+    <li>
+      <img src="../../../assets/image/menu/logout.png" alt="">
+      <a (click)="loginService.logout()" [ngStyle]="{'cursor': 'pointer'}" translate="menu.logout"></a>
+    </li>
+  </ul>
+</section>

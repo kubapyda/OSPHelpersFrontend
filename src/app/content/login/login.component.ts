@@ -1,7 +1,7 @@
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { LoginService } from '../../core/auth/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +12,8 @@ export class LoginComponent {
 
   credentials: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, public login: LoginService) {
     this.credentials = this.createCredentialsForm();
-  }
-
-  login() {
-    if (this.credentials.value.username === 'admin' && this.credentials.value.password === 'admin') {
-      sessionStorage.setItem('authorization-token', 'true');
-      this.router.navigate(['']);
-    }
   }
 
   private createCredentialsForm() {

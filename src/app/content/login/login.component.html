@@ -4,7 +4,7 @@
       <mat-card>
         <mat-card-content>
           <div class="osp-logo"></div>
-          <form [formGroup]="credentials" (submit)="login()" autocomplete="off">
+          <form [formGroup]="credentials" (submit)="login.login(credentials.value)" autocomplete="off">
             <div class="login-input">
               <i class="fa fa-user"></i>
               <mat-form-field class="full-width">
