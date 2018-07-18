@@ -1,5 +1,6 @@
 {
   "global": {
+    "id": "Id",
     "username": "Użytkownik",
     "password": "Hasło",
     "login": "Zaloguj",

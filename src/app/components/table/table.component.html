@@ -1,0 +1,16 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
+
+  <ng-container *ngFor="let def of tableConfig" [matColumnDef]="def.name">
+    <th mat-header-cell *matHeaderCellDef [ngStyle]="{ 'width': def.width }">
+      <span *ngIf="isIcon(def.icon)" [translate]="def.translation"></span>
+    </th>
+    <td mat-cell [ngStyle]="{ 'width': def.width }" *matCellDef="let element" [ngClass]="{'edit-icon': def.icon === iconTypes.EDIT, 'delete-icon': def.icon === iconTypes.REMOVE}">
+      <span *ngIf="isIcon(def.icon)" [innerText]="element[def.name]"></span>
+      <mat-icon *ngIf="def.icon === iconTypes.EDIT" svgIcon="edit" color="warning"></mat-icon>
+      <mat-icon *ngIf="def.icon === iconTypes.REMOVE" svgIcon="delete"></mat-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

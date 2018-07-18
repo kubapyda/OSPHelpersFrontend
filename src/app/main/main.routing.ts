@@ -14,6 +14,9 @@ export const MAIN_ROUTES: Routes = [{
     translation: TranslateResolver
   },
   children: [{
+    path: 'firefighters',
+    loadChildren: './firefighters/firefighters.module#FirefightersModule'
+  }, {
     path: '**',
     redirectTo: '/'
   }]

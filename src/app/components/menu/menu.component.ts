@@ -18,13 +18,13 @@ export class MenuComponent implements OnDestroy {
   }
 
   private createMenu(): Array<MenuPosition> {
-    this.menuService.addPosition('firefighters').addTranslation('menu.firefighters').addIcon('firefighters.png').save();
-    this.menuService.addPosition('departures').addTranslation('menu.departures').addIcon('departures.png').save();
-    this.menuService.addPosition('cars').addTranslation('menu.cars').addIcon('cars.png').save();
-    this.menuService.addPosition('medicalExamination').addTranslation('menu.medicalExamination').addIcon('medicalExamination.png').save();
-    this.menuService.addPosition('courses').addTranslation('menu.courses').addIcon('courses.png').save();
-    this.menuService.addPosition('fees').addTranslation('menu.fees').addIcon('fees.png').save();
-    this.menuService.addPosition('equipmentInvetory').addTranslation('menu.equipmentInvetory').addIcon('equipmentInvetory.png').save();
+    this.menuService.addPosition('firefighters').addLink('firefighters').addTranslation('menu.firefighters').addIcon('firefighters.png').save();
+    this.menuService.addPosition('departures').addLink('').addTranslation('menu.departures').addIcon('departures.png').save();
+    this.menuService.addPosition('cars').addLink('').addTranslation('menu.cars').addIcon('cars.png').save();
+    this.menuService.addPosition('medicalExamination').addLink('').addTranslation('menu.medicalExamination').addIcon('medicalExamination.png').save();
+    this.menuService.addPosition('courses').addLink('').addTranslation('menu.courses').addIcon('courses.png').save();
+    this.menuService.addPosition('fees').addLink('').addTranslation('menu.fees').addIcon('fees.png').save();
+    this.menuService.addPosition('equipmentInvetory').addLink('').addTranslation('menu.equipmentInvetory').addIcon('equipmentInvetory.png').save();
     return this.menuService.getMenu();
   }
 

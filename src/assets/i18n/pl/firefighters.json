@@ -1,0 +1,9 @@
+{
+  "firefighters": {
+    "name": "Imię",
+    "surname": "Nazwisko",
+    "birthdayDate": "Data urodzenia",
+    "entryDate": "Data wstąpienia",
+    "type": "Rodzaj"
+  }
+}
