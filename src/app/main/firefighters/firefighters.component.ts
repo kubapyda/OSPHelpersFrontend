@@ -1,7 +1,9 @@
+import * as _ from 'lodash';
+
 import { Component, OnInit } from '@angular/core';
+import { Firefighter, PaginationConfig } from '@app/shared/model';
 
 import { Column } from '@app/components/table/models';
-import { Firefighter } from '@app/shared/model';
 import { IconType } from '@app/components/table/models';
 import { TableService } from '@app/components/table';
 
@@ -26,15 +28,25 @@ const ELEMENT_DATA: Firefighter[] = [
 })
 export class FirefightersComponent implements OnInit {
 
-  dataSource = ELEMENT_DATA;
+  dataSource = _.cloneDeep(ELEMENT_DATA);
+  tableData: Array<Firefighter>;
   tableConfig: Array<Column>;
   iconType = IconType;
+  paginationConfig: PaginationConfig = new PaginationConfig();
 
   constructor(private table: TableService) {
     this.tableConfig = this.createTableConfig();
   }
 
   ngOnInit() {
+    this.tableData = this.dataSource.splice(0, 8);
+    this.dataSource = _.cloneDeep(ELEMENT_DATA);
+    this.paginationConfig = _.assignIn(this.paginationConfig, { length: this.dataSource.length });
+  }
+
+  changePage(evt) {
+    this.tableData = this.dataSource.splice(evt.pageIndex * 8, (evt.pageIndex * 8) + 8);
+    this.dataSource = _.cloneDeep(ELEMENT_DATA);
   }
 
   private createTableConfig(): Array<Column> {

@@ -1,1 +1,2 @@
-<app-table [dataSource]="dataSource" [config]="tableConfig"></app-table>
+<app-table [dataSource]="tableData" [config]="tableConfig"></app-table>
+<app-pagination [config]="paginationConfig" (page)="changePage($event)"></app-pagination>

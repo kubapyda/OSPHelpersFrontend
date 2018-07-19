@@ -21,5 +21,10 @@
     "menu": {
       "changePassword": "Zmień hasło"
     }
+  },
+  "pagination": {
+    "itemsPerPage": "Elementów na stronie",
+    "nextPage": "Następna strona",
+    "previousPage": "Poprzednia strona"
   }
 }
