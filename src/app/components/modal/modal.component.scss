@@ -1,0 +1,38 @@
+.modal-title {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0 15px 15px;
+  margin: 0 -15px 20px;
+  position: relative;
+  .close-btn {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    span {
+      font-size: 30px;
+    }
+  }
+}
+
+.modal-body ::ng-deep .container {
+  width: 95%;
+  .row {
+    .col-6 {
+      flex: 0 0 46%;
+      .modal-input {
+        width: 95%;
+      }
+    }
+  }
+}
+
+.modal-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 15px -15px -18px -15px;
+  padding: 12px 15px;
+}

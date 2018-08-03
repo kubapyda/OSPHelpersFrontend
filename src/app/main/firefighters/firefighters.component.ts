@@ -4,7 +4,11 @@ import { Component, OnInit } from '@angular/core';
 import { Firefighter, PaginationConfig } from '@app/shared/model';
 
 import { Column } from '@app/components/table/models';
+import { FirefightersDeleteComponent } from './firefighters-delete/firefighters-delete.component';
+import { FirefightersModalComponent } from './firefighters-modal/firefighters-modal.component';
 import { IconType } from '@app/components/table/models';
+import { MatDialog } from '@angular/material';
+import { ModalService } from '@app/components/modal';
 import { TableService } from '@app/components/table';
 
 const ELEMENT_DATA: Firefighter[] = [
@@ -34,7 +38,7 @@ export class FirefightersComponent implements OnInit {
   iconType = IconType;
   paginationConfig: PaginationConfig = new PaginationConfig();
 
-  constructor(private table: TableService) {
+  constructor(private table: TableService, private modal: ModalService) {
     this.tableConfig = this.createTableConfig();
   }
 
@@ -44,9 +48,21 @@ export class FirefightersComponent implements OnInit {
     this.paginationConfig = _.assignIn(this.paginationConfig, { length: this.dataSource.length });
   }
 
-  changePage(evt) {
+  changePage(evt): void {
     this.tableData = this.dataSource.splice(evt.pageIndex * 8, (evt.pageIndex * 8) + 8);
     this.dataSource = _.cloneDeep(ELEMENT_DATA);
+  }
+
+  openAddDialog(): void {
+    this.modal.open(FirefightersModalComponent)
+  }
+
+  openEditDialog(): void {
+    this.modal.open(FirefightersModalComponent);
+  }
+
+  openDeleteDialog(): void {
+    this.modal.open(FirefightersDeleteComponent);
   }
 
   private createTableConfig(): Array<Column> {

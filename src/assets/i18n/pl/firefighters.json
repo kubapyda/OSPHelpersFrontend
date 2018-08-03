@@ -2,8 +2,27 @@
   "firefighters": {
     "name": "Imię",
     "surname": "Nazwisko",
+    "login": "Login",
     "birthdayDate": "Data urodzenia",
     "entryDate": "Data wstąpienia",
-    "type": "Rodzaj"
+    "type": "Rodzaj",
+    "gender": "Płeć",
+    "addLabel": "Dodaj strażaka",
+    "action": {
+      "add": "Dodaj"
+    },
+    "types": {
+      "MEMBER": "Członek",
+      "JOT": "JOT",
+      "MDP": "MDP"
+    },
+    "genders": {
+      "MAN": "Mężczyzna",
+      "WOMAN": "Kobieta"
+    },
+    "delete": {
+      "title": "Usuń strażaka",
+      "question": "Czy jesteś pewny że chcesz usunąć strażaka?"
+    }
   }
 }

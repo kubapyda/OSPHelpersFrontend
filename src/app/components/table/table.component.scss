@@ -1,15 +1,23 @@
 .custom-table {
   width: 99%;
   tr td {
-    &.edit-icon {
-      color: #4A96AD;
-    }
-    &.delete-icon {
-      color: #B71427;
-    }
-    mat-icon {
-      width: 20px;
-      height: 20px;
+    button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+      &.edit-icon {
+        color: #4A96AD;
+      }
+      &.delete-icon {
+        color: #B71427;
+      }
+      mat-icon {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 }

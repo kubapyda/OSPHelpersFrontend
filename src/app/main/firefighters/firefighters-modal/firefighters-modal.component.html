@@ -1,0 +1,65 @@
+<app-modal [formGroup]="firefightersForm" (submitFn)="save()">
+  <modal-header>
+    <span translate="firefighters.addLabel"></span>
+  </modal-header>
+  <modal-body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <input matInput formControlName="name" [placeholder]="'firefighters.name' | translate">
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <input matInput formControlName="surname" [placeholder]="'firefighters.surname' | translate" (change)="createLogin()">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <input matInput formControlName="login" [placeholder]="'firefighters.login' | translate">
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <mat-select formControlName="type" [placeholder]="'firefighters.type' | translate">
+              <mat-option *ngFor="let type of types" [value]="type.value">
+                <span [translate]="type.nlsCode"></span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <app-date-time-picker formControlName="birthdayDate" placeholder="firefighters.birthdayDate"></app-date-time-picker>
+        </div>
+        <div class="col-6">
+          <app-date-time-picker formControlName="entryDate" placeholder="firefighters.entryDate"></app-date-time-picker>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6 align-self-start">
+          <mat-form-field class="modal-input">
+            <mat-select formControlName="gender" [placeholder]="'firefighters.gender' | translate">
+              <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                <span [translate]="gender.nlsCode"></span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+    </div>
+  </modal-body>
+  <modal-footer>
+    <button mat-raised-button class="primary" [disabled]="!firefightersForm.valid">
+      <span translate="global.save"></span>
+    </button>
+  </modal-footer>
+</app-modal>

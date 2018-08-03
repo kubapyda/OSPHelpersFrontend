@@ -34,3 +34,18 @@ body {
     color: #fff;
   }
 }
+
+@mixin buttons($color) {
+  color: #fff;
+  background: $color;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.primary {
+  @include buttons(#C63D0F);
+}
+
+.cancel {
+  @include buttons(#3B3738);
+}

@@ -4,10 +4,15 @@
     <th mat-header-cell *matHeaderCellDef [ngStyle]="{ 'width': def.width }">
       <span *ngIf="isIcon(def.icon)" [translate]="def.translation"></span>
     </th>
-    <td mat-cell [ngStyle]="{ 'width': def.width }" *matCellDef="let element" [ngClass]="{'edit-icon': def.icon === iconTypes.EDIT, 'delete-icon': def.icon === iconTypes.REMOVE}">
+    <td mat-cell [ngStyle]="{ 'width': def.width }" *matCellDef="let element">
       <span *ngIf="isIcon(def.icon)" [innerText]="element[def.name]"></span>
-      <mat-icon *ngIf="def.icon === iconTypes.EDIT" svgIcon="edit" color="warning"></mat-icon>
-      <mat-icon *ngIf="def.icon === iconTypes.REMOVE" svgIcon="delete"></mat-icon>
+      <button [matTooltip]="'global.edit' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.EDIT" [ngClass]="{'edit-icon': def.icon === iconTypes.EDIT}"
+        (click)="onEditAction()">
+        <mat-icon svgIcon="edit" color="warning"></mat-icon>
+      </button>
+      <button [matTooltip]="'global.remove' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.REMOVE" [ngClass]="{'delete-icon': def.icon === iconTypes.REMOVE}" (click)="onDeleteAction()">
+        <mat-icon svgIcon="delete"></mat-icon>
+      </button>
     </td>
   </ng-container>
 

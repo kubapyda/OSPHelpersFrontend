@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { DomSanitizer } from '@angular/platform-browser';
 import { IconType } from './models/icon-type';
@@ -15,6 +15,8 @@ export class TableComponent implements OnInit {
 
   @Input('dataSource') dataSource;
   @Input('config') tableConfig;
+  @Output('editAction') editFn: EventEmitter<any> = new EventEmitter<any>();
+  @Output('deleteAction') deleteFn: EventEmitter<any> = new EventEmitter<any>();
   displayedColumns: Array<string>;
   iconTypes = IconType;
 
@@ -25,6 +27,14 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {
     this.displayedColumns = this.createDisplayedColumns();
+  }
+
+  onEditAction(): void {
+    this.editFn.emit();
+  }
+
+  onDeleteAction(): void {
+    this.deleteFn.emit();
   }
 
   isIcon(icon: IconType | undefined): boolean {

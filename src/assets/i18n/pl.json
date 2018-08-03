@@ -4,7 +4,11 @@
     "username": "Użytkownik",
     "password": "Hasło",
     "login": "Zaloguj",
-    "forgotPassword": "Nie pamiętasz hasła?"
+    "forgotPassword": "Nie pamiętasz hasła?",
+    "cancel": "Anuluj",
+    "remove": "Usuń",
+    "edit": "Edytuj",
+    "save": "Zapisz"
   },
   "menu": {
     "firefighters": "Strażacy",

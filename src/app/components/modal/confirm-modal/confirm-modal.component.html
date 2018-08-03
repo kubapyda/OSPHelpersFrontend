@@ -1,0 +1,19 @@
+<app-modal>
+  <modal-header>
+    <span [translate]="modalTitle"></span>
+  </modal-header>
+  <modal-body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <span [translate]="modalContent" [translateParams]="modalContentParams"></span>
+        </div>
+      </div>
+    </div>
+  </modal-body>
+  <modal-footer>
+    <button mat-raised-button class="primary">
+      <span translate="global.remove"></span>
+    </button>
+  </modal-footer>
+</app-modal>

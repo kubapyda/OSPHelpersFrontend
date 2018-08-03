@@ -1,4 +1,4 @@
-import { MatIconModule, MatTableModule } from '@angular/material';
+import { MatIconModule, MatTableModule, MatTooltipModule } from '@angular/material';
 
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@app/shared';
@@ -9,6 +9,7 @@ import { TableService } from './table.service';
   imports: [
     SharedModule,
     MatIconModule,
+    MatTooltipModule,
     MatTableModule
   ],
   declarations: [TableComponent],
