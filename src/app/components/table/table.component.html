@@ -2,17 +2,27 @@
 
   <ng-container *ngFor="let def of tableConfig" [matColumnDef]="def.name">
     <th mat-header-cell *matHeaderCellDef [ngStyle]="{ 'width': def.width }">
-      <span *ngIf="isIcon(def.icon)" [translate]="def.translation"></span>
+      <span *ngIf="isIcon(def.icon) || def.icon === iconTypes.GENDER" [translate]="def.translation"></span>
     </th>
     <td mat-cell [ngStyle]="{ 'width': def.width }" *matCellDef="let element">
-      <span *ngIf="isIcon(def.icon)" [innerText]="element[def.name]"></span>
+      <span *ngIf="def.type === columnType.TEXT" [innerText]="element[def.name]"></span>
+      <span *ngIf="def.type === columnType.DATE" [innerText]="element[def.name] | date: 'dd/MM/yyyy'"></span>
+      <span *ngIf="def.type === columnType.TRANSLATE_TEXT" [translate]="def.translationPrefix + '.' + element[def.name]"></span>
       <button [matTooltip]="'global.edit' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.EDIT" [ngClass]="{'edit-icon': def.icon === iconTypes.EDIT}"
-        (click)="onEditAction()">
+        (click)="onEditAction(element)">
         <mat-icon svgIcon="edit" color="warning"></mat-icon>
       </button>
-      <button [matTooltip]="'global.remove' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.REMOVE" [ngClass]="{'delete-icon': def.icon === iconTypes.REMOVE}" (click)="onDeleteAction()">
+      <button [matTooltip]="'global.remove' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.REMOVE" [ngClass]="{'delete-icon': def.icon === iconTypes.REMOVE}"
+        (click)="onDeleteAction(element)">
         <mat-icon svgIcon="delete"></mat-icon>
       </button>
+
+      <span *ngIf="def.icon === iconTypes.GENDER">
+        <mat-icon svgIcon="male" *ngIf="element[def.name] === 'MAN'" [matTooltip]="'global.male' | translate" matTooltipPosition="above"
+          class="man-icon"></mat-icon>
+        <mat-icon svgIcon="female" *ngIf="element[def.name] === 'WOMAN'" [matTooltip]="'global.female' | translate" matTooltipPosition="above"
+          class="woman-icon"></mat-icon>
+      </span>
     </td>
   </ng-container>
 

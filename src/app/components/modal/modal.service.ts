@@ -4,13 +4,17 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ModalService {
-
   dialogRef: MatDialogRef<any>;
 
-  constructor(private modal: MatDialog) { }
+  constructor(private modal: MatDialog) {}
 
-  open(component): void {
-    this.dialogRef = this.modal.open(component, { width: '950px', disableClose: true });
+  open(component, data: Object = {}) {
+    this.dialogRef = this.modal.open(component, {
+      width: '950px',
+      disableClose: true,
+      data: data
+    });
+    return this.dialogRef;
   }
 
   close() {

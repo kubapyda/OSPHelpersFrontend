@@ -8,7 +8,11 @@
     "cancel": "Anuluj",
     "remove": "Usuń",
     "edit": "Edytuj",
-    "save": "Zapisz"
+    "save": "Zapisz",
+    "male": "Mężczyzna",
+    "female": "Kobieta",
+    "success": "Powodzenie!",
+    "failure": "Niepowodzenie!"
   },
   "menu": {
     "firefighters": "Strażacy",

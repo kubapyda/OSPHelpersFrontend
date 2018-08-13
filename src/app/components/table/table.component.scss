@@ -9,15 +9,21 @@
         outline: none;
       }
       &.edit-icon {
-        color: #4A96AD;
+        color: #4a96ad;
       }
       &.delete-icon {
-        color: #B71427;
+        color: #b71427;
       }
       mat-icon {
         width: 20px;
         height: 20px;
       }
+    }
+    .man-icon {
+      color: #4a96ad;
+    }
+    .woman-icon {
+      color: #db7093;
     }
   }
 }

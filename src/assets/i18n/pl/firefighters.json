@@ -22,7 +22,22 @@
     },
     "delete": {
       "title": "Usuń strażaka",
-      "question": "Czy jesteś pewny że chcesz usunąć strażaka?"
+      "question":
+        "Czy jesteś pewny że {{name}} ma zostać usunięty z listy strażaków?"
+    },
+    "msg": {
+      "create": {
+        "success": "Strażak {{name}} został dodany",
+        "error": "Nie udało się dodać strażaka"
+      },
+      "update": {
+        "success": "Strażak {{name}} został zaktualizowany",
+        "error": "Nie udało się zaktualizować strażaka"
+      },
+      "delete": {
+        "success": "Strażak {{name}} został usunięty",
+        "error": "Nie udało się usunąć strażaka"
+      }
     }
   }
 }

@@ -1,80 +1,69 @@
-import * as _ from 'lodash';
-
 import { Component, OnInit } from '@angular/core';
 import { Firefighter, PaginationConfig } from '@app/shared/model';
 
 import { Column } from '@app/components/table/models';
 import { FirefightersDeleteComponent } from './firefighters-delete/firefighters-delete.component';
 import { FirefightersModalComponent } from './firefighters-modal/firefighters-modal.component';
-import { IconType } from '@app/components/table/models';
-import { MatDialog } from '@angular/material';
+import { FirefightersService } from './firefighters.service';
+import { FirefightersTable } from './firefighters.table';
 import { ModalService } from '@app/components/modal';
 import { TableService } from '@app/components/table';
-
-const ELEMENT_DATA: Firefighter[] = [
-  { id: 1, name: 'Konrad', surname: 'Mazurkiewicz', birthdayDate: '25/10/1963', entryDate: '13/02/1991', type: 'JOT' },
-  { id: 2, name: 'Paweł', surname: 'Witek', birthdayDate: '01/09/1966', entryDate: '25/10/1999', type: 'JOT' },
-  { id: 3, name: 'Krystian', surname: 'Stelmach', birthdayDate: '25/10/1963', entryDate: '04/04/1995', type: 'Członek' },
-  { id: 4, name: 'Paweł', surname: 'Kościołek', birthdayDate: '30/04/1975', entryDate: '25/10/1963', type: 'JOT' },
-  { id: 5, name: 'Radosław', surname: 'Kurlapski', birthdayDate: '25/10/1963', entryDate: '04/01/2000', type: 'JOT' },
-  { id: 6, name: 'Krzysztof', surname: 'Bieniek', birthdayDate: '14/12/1983', entryDate: '25/10/1963', type: 'JOT' },
-  { id: 7, name: 'Alicja', surname: 'Wiedro-Stempińska', birthdayDate: '25/10/1963', entryDate: '29/05/2012', type: 'JOT' },
-  { id: 8, name: 'Daniel', surname: 'Gaik', birthdayDate: '16/011984', entryDate: '25/10/1963', type: 'Członek' },
-  { id: 9, name: 'Jakub', surname: 'Pyda', birthdayDate: '25/10/1963', entryDate: '03/04/2015', type: 'JOT' },
-  { id: 10, name: 'Albert', surname: 'Mazurkiewicz', birthdayDate: '12/11/1992', entryDate: '25/10/1963', type: 'Członek' },
-];
 
 @Component({
   selector: 'app-firefighters',
   templateUrl: './firefighters.component.html',
   styleUrls: ['./firefighters.component.scss'],
-  providers: [TableService]
+  providers: [FirefightersTable, TableService]
 })
 export class FirefightersComponent implements OnInit {
-
-  dataSource = _.cloneDeep(ELEMENT_DATA);
   tableData: Array<Firefighter>;
   tableConfig: Array<Column>;
-  iconType = IconType;
   paginationConfig: PaginationConfig = new PaginationConfig();
 
-  constructor(private table: TableService, private modal: ModalService) {
-    this.tableConfig = this.createTableConfig();
+  constructor(
+    private firefightersTable: FirefightersTable,
+    private modal: ModalService,
+    private firefightersService: FirefightersService
+  ) {
+    this.tableConfig = this.firefightersTable.getConfig();
   }
 
   ngOnInit() {
-    this.tableData = this.dataSource.splice(0, 8);
-    this.dataSource = _.cloneDeep(ELEMENT_DATA);
-    this.paginationConfig = _.assignIn(this.paginationConfig, { length: this.dataSource.length });
+    this.loadFirefighters();
   }
 
   changePage(evt): void {
-    this.tableData = this.dataSource.splice(evt.pageIndex * 8, (evt.pageIndex * 8) + 8);
-    this.dataSource = _.cloneDeep(ELEMENT_DATA);
+    this.loadFirefighters({ page: evt.pageIndex + 1 });
   }
 
   openAddDialog(): void {
-    this.modal.open(FirefightersModalComponent)
+    this.modal
+      .open(FirefightersModalComponent)
+      .beforeClose()
+      .subscribe(() => this.loadFirefighters());
   }
 
-  openEditDialog(): void {
-    this.modal.open(FirefightersModalComponent);
+  openEditDialog(firefighter: Firefighter): void {
+    this.modal
+      .open(FirefightersModalComponent, { id: firefighter.id })
+      .beforeClose()
+      .subscribe(() => this.loadFirefighters());
   }
 
-  openDeleteDialog(): void {
-    this.modal.open(FirefightersDeleteComponent);
+  openDeleteDialog(firefighter: Firefighter): void {
+    this.modal
+      .open(FirefightersDeleteComponent, {
+        id: firefighter.id,
+        name: `${firefighter.name} ${firefighter.surname}`
+      })
+      .beforeClose()
+      .subscribe(() => this.loadFirefighters());
   }
 
-  private createTableConfig(): Array<Column> {
-    this.table.addColumn('edit').addIcon(this.iconType.EDIT).save();
-    this.table.addColumn('id', '51px').addTranslation('global.id').save();
-    this.table.addColumn('name').addTranslation('firefighters.name').save();
-    this.table.addColumn('surname').addTranslation('firefighters.surname').save();
-    this.table.addColumn('birthdayDate').addTranslation('firefighters.birthdayDate').save();
-    this.table.addColumn('entryDate').addTranslation('firefighters.entryDate').save();
-    this.table.addColumn('type').addTranslation('firefighters.type').save();
-    this.table.addColumn('remove').addIcon(this.iconType.REMOVE).save();
-    return this.table.getConfig();
+  private loadFirefighters(params: Object = { page: 1 }): void {
+    this.firefightersService.findAll(params).subscribe((data: any) => {
+      this.paginationConfig.length = +data.body.totalCount;
+      this.tableData = data.body.data;
+    });
   }
-
 }

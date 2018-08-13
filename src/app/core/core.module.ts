@@ -1,16 +1,23 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Injector, NgModule } from '@angular/core';
 import { LanguageService, TranslateResolver } from '@app/core/language';
 import { LoginService, UserAccessGuard } from '@app/core/auth';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
+import { AppToastrService } from './toastr/app-toastr.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { EnumService } from './enum/enum.service';
 import { RouterModule } from '@angular/router';
+import { ServiceLocator } from './locator.service';
+import { ToastrModule } from 'ngx-toastr';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -27,10 +34,16 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     LanguageService,
     LoginService,
     TranslateResolver,
+    AppToastrService,
+    EnumService,
     UserAccessGuard
   ]
 })
-export class CoreModule { }
+export class CoreModule {
+  constructor(private injector: Injector) {
+    ServiceLocator.injector = this.injector;
+  }
+}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
