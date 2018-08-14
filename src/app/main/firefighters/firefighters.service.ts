@@ -5,36 +5,35 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Firefighter } from '@app/shared/model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FirefightersService {
-  requesturl = 'http://localhost:3333/api/firefighters';
+  requestUrl = `${environment.SERVER_URL}/api/firefighters`;
 
   constructor(private http: HttpClient) {}
 
   findAll(params?: Object): Observable<any> {
     const p = new HttpParams().set('page', _.get(params, 'page'));
-    return this.http.request('get', this.requesturl, {
+    return this.http.request('get', this.requestUrl, {
       params: p,
       observe: 'response'
     });
   }
 
   findById(id: number): Observable<any> {
-    return this.http.get(`${this.requesturl}/${id}`);
+    return this.http.get(`${this.requestUrl}/${id}`);
   }
 
   save(firefighter: Firefighter): Observable<any> {
-    return this.http.post(this.requesturl, firefighter);
+    return this.http.post(this.requestUrl, firefighter);
   }
 
   update(id: number, firefighter: Firefighter): Observable<any> {
-    return this.http.put(`${this.requesturl}/${id}`, firefighter);
+    return this.http.put(`${this.requestUrl}/${id}`, firefighter);
   }
 
   remove(id: number): Observable<any> {
-    return this.http.delete(`${this.requesturl}/${id}`);
+    return this.http.delete(`${this.requestUrl}/${id}`);
   }
 }

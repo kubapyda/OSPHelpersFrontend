@@ -1,0 +1,66 @@
+{
+  "cars": {
+    "action": {
+      "add": "Dodaj pojazd"
+    },
+    "addLabel": "Dodaj samochód",
+    "mark": "Marka",
+    "model": "Model",
+    "taskCar": "Zadanie samochodu",
+    "carWeight": "Masa samochodu",
+    "technicalExaminationDate": "Data badania technicznego",
+    "insuranceDate": "Data obowiązywania ubezpieczenia",
+    "equipmentName": "Wyposażenie",
+    "purposeName": "Przeznaczenie",
+    "registrationNumber": "Numer rejstracyjny",
+    "productionDate": "Data produkcji",
+    "operationNumber": "Numer operacyjny",
+    "equipmentOrPurpose": "Wyposażenie / Przeznaczenie",
+    "message": {
+      "create": {
+        "success": "Samochód {{mark}} {{model}} został pomyślnie dodany",
+        "error": "Nie udało się dodać samochodu."
+      },
+      "update": {
+        "success": "Samochód {{mark}} {{model}} został pomyślnie zaktualizowany",
+        "error": "Nie udało się zaktualizować samochodu."
+      },
+      "delete": {
+        "success": "Samochód {{mark}} {{model}} został pomyślnie usunięty",
+        "error": "Nie udało się usunąć samochodu."
+      }
+    },
+    "tasksCar": {
+      "FIREFIGHTING": "Gaśniczy",
+      "SPECIAL": "Specjalny"
+    },
+    "weight": {
+      "LIGHT": "Lekki",
+      "MEDIUM": "Średni",
+      "HEAVY": "Ciężki"
+    },
+    "equipment": {
+      "AUTOPOMPE": "Autopompa",
+      "MOTOPOMPA": "Motopompa",
+      "EXTINGUISHING_POWDER": "Zbiornik z proszkiem gaśniczym",
+      "SNOW_INSTALLATION": "Instalacja śnieżna"
+    },
+    "purpose": {
+      "LADDER": "Drabina",
+      "HYDRAULIC_JACK": "Podnośnik hydrauliczny",
+      "ROAD_RESCUE": "Ratownictwo drogowe",
+      "TECHNICAL_RESCUE": "Ratownictwo techniczne",
+      "CHEMICAL_RESCUE": "Ratownictwo chemiczne",
+      "ENVIRONMENTAL_RESCUE": "Ratownictwo środowiskowe",
+      "WATER_RESCUE": "Ratownictwo wodne",
+      "LIFESAVING": "Ratownictwo wysokościowe",
+      "CRANE": "Dźwig",
+      "OPERATING": "Operacyjny",
+      "COMMAND_AND_COMMUNICATION": "Dowodzenia i łączności",
+      "SERPENTINE": "Wężowy",
+      "MEDICAL": "Medyczny",
+      "AN_ANTI": "Przeciwgazowy",
+      "QUARTERMASTER": "Kwatermistrzowski"
+    }
+  }
+}

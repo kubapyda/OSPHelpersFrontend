@@ -10,6 +10,7 @@ import { FirefightersComponent } from './firefighters.component';
 import { FirefightersDeleteComponent } from './firefighters-delete/firefighters-delete.component';
 import { FirefightersModalComponent } from './firefighters-modal/firefighters-modal.component';
 import { FirefightersRoutingModule } from './firefighters.routing';
+import { FirefightersService } from './firefighters.service';
 import { ModalModule } from '@app/components/modal';
 import { PaginationModule } from '@app/components/pagination';
 import { SharedModule } from '@app/shared';
@@ -33,6 +34,7 @@ import { TableModule } from '@app/components/table';
     FirefightersDeleteComponent
   ],
   entryComponents: [FirefightersModalComponent, FirefightersDeleteComponent],
+  providers: [FirefightersService],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class FirefightersModule {}

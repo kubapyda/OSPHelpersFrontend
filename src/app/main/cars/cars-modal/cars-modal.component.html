@@ -1,0 +1,90 @@
+<app-modal [formGroup]="carsForm" (submitFn)="save()">
+  <modal-header>
+    <span translate="cars.addLabel"></span>
+  </modal-header>
+  <modal-body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <input matInput formControlName="mark" [placeholder]="'cars.mark' | translate">
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <input matInput formControlName="model" [placeholder]="'cars.model' | translate">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <input matInput formControlName="registrationNumber" [placeholder]="'cars.registrationNumber' | translate">
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <app-date-time-picker formControlName="productionDate" placeholder="cars.productionDate"></app-date-time-picker>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <input matInput formControlName="operationNumber" [placeholder]="'cars.operationNumber' | translate">
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <mat-select formControlName="taskCar" [placeholder]="'cars.taskCar' | translate" (ngModelChange)="changeCarTask()">
+              <mat-option *ngFor="let task of taskCar" [value]="task.value">
+                <span [translate]="task.nlsCode"></span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="modal-input" *ngIf="!selectedCarTask">
+            <input matInput formControlName="equipmentOrPurpose" [placeholder]="'cars.equipmentOrPurpose' | translate">
+          </mat-form-field>
+          <mat-form-field class="modal-input" *ngIf="selectedCarTask === 'FIREFIGHTING'">
+            <mat-select formControlName="extinguishingEquipment" [placeholder]="'cars.equipmentName' | translate">
+              <mat-option *ngFor="let element of extinguishingEquipment" [value]="element.value">
+                <span [translate]="element.nlsCode"></span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="modal-input" *ngIf="selectedCarTask === 'SPECIAL'">
+            <mat-select formControlName="specialCarsPurpose" [placeholder]="'cars.purposeName' | translate">
+              <mat-option *ngFor="let purpose of specialCarsPurpose" [value]="purpose.value">
+                <span [translate]="purpose.nlsCode"></span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <mat-select formControlName="carWeight" [placeholder]="'cars.carWeight' | translate">
+              <mat-option *ngFor="let weight of carWeight" [value]="weight.value">
+                <span [translate]="weight.nlsCode"></span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <app-date-time-picker formControlName="technicalExaminationDate" placeholder="cars.technicalExaminationDate"></app-date-time-picker>
+        </div>
+        <div class="col-6">
+          <app-date-time-picker formControlName="insuranceDate" placeholder="cars.insuranceDate"></app-date-time-picker>
+        </div>
+      </div>
+    </div>
+  </modal-body>
+  <modal-footer>
+    <button mat-raised-button class="primary" [disabled]="!carsForm.valid">
+      <span translate="global.save"></span>
+    </button>
+  </modal-footer>
+</app-modal>
