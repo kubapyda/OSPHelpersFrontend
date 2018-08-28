@@ -6,15 +6,16 @@ import {
 } from '@app/shared/enums';
 
 export class Car {
+  id?: string;
   mark: string;
   model: string;
   registrationNumber: string;
   productionDate: Date;
-  operaionNumber: string;
+  operationNumber: string;
   taskCar: TasksCar;
   carWeight: CarWeight;
   technicalExaminationDate: Date;
   insuranceDate: Date;
-  specialCarsPurpose: SpecialCarsPurpose;
-  extinguishingEquipment: ExtinguishingEquipment;
+  specialCarsPurpose?: SpecialCarsPurpose;
+  extinguishingEquipment?: ExtinguishingEquipment;
 }

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 import { AppToastrService } from '@app/core/toastr';
 import { FirefightersService } from '../firefighters.service';

@@ -3,3 +3,5 @@
     <span translate="cars.action.add"></span>
   </button>
 </div>
+<app-table [dataSource]="tableData" [config]="tableConfig" (editAction)="openEditDialog($event)" (deleteAction)="openDeleteDialog($event)"></app-table>
+<app-pagination [config]="paginationConfig" (page)="changePage($event)"></app-pagination>

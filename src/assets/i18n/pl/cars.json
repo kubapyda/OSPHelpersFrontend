@@ -16,6 +16,10 @@
     "productionDate": "Data produkcji",
     "operationNumber": "Numer operacyjny",
     "equipmentOrPurpose": "Wyposażenie / Przeznaczenie",
+    "delete": {
+      "title": "Usuń samochód",
+      "question": "Czy jesteś pewny że samochód {{name}} ma zostać usunięty?"
+    },
     "message": {
       "create": {
         "success": "Samochód {{mark}} {{model}} został pomyślnie dodany",
@@ -26,7 +30,7 @@
         "error": "Nie udało się zaktualizować samochodu."
       },
       "delete": {
-        "success": "Samochód {{mark}} {{model}} został pomyślnie usunięty",
+        "success": "Samochód {{name}} został pomyślnie usunięty",
         "error": "Nie udało się usunąć samochodu."
       }
     },
