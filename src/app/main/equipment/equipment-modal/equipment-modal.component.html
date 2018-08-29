@@ -1,0 +1,24 @@
+<app-modal [formGroup]="equipmentForm" (submitFn)="save()">
+  <modal-header>
+    <span translate="equipment.addLabel"></span>
+  </modal-header>
+  <modal-body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <input matInput formControlName="name" [placeholder]="'equipment.name' | translate">
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <app-date-time-picker formControlName="approvalDate" placeholder="equipment.approvalDate"></app-date-time-picker>
+        </div>
+      </div>
+    </div>
+  </modal-body>
+  <modal-footer>
+    <button mat-raised-button class="primary" [disabled]="!equipmentForm.valid">
+      <span translate="global.save"></span>
+    </button>
+  </modal-footer>
+</app-modal>

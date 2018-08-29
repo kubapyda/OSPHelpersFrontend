@@ -58,7 +58,7 @@ export class MenuComponent implements OnDestroy {
       .save();
     this.menuService
       .addPosition('equipmentInvetory')
-      .addLink('')
+      .addLink('equipment')
       .addTranslation('menu.equipmentInvetory')
       .addIcon('equipmentInvetory.png')
       .save();

@@ -1,0 +1,29 @@
+{
+    "equipment": {
+        "action": {
+            "add": "Dodaj"
+        },
+        "addLabel": "Dodaj przedmiot",
+        "name": "Nazwa",
+        "approvalDate": "Data obowiązywania atestu",
+        "delete": {
+          "title": "Usuń przedmiot",
+          "question":
+            "Czy jesteś pewny że {{name}} ma zostać usunięty z inwentarza sprzętu?"
+        },
+        "message": {
+          "create": {
+            "success": "Przedmiot {{name}} został dodany",
+            "error": "Nie udało się dodać przedmiotu"
+          },
+          "update": {
+            "success": "Przedmiot {{name}} został zaktualizowany",
+            "error": "Nie udało się zaktualizować przedmiotu"
+          },
+          "delete": {
+            "success": "Przedmiot {{name}} został usunięty",
+            "error": "Nie udało się usunąć przedmiotu"
+          }
+        }
+    }
+}

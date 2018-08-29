@@ -15,6 +15,7 @@ import { MatIconRegistry } from '@angular/material';
 export class TableComponent implements OnInit {
   @Input('dataSource') dataSource;
   @Input('config') tableConfig;
+  @Input('tableWidth') tableWidth: string;
   @Output('editAction') editFn: EventEmitter<any> = new EventEmitter<any>();
   @Output('deleteAction') deleteFn: EventEmitter<any> = new EventEmitter<any>();
   displayedColumns: Array<string>;

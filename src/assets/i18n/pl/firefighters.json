@@ -9,7 +9,7 @@
     "gender": "Płeć",
     "addLabel": "Dodaj strażaka",
     "action": {
-      "add": "Dodaj"
+      "add": "Dodaj strażaka"
     },
     "types": {
       "MEMBER": "Członek",

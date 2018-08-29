@@ -24,6 +24,10 @@ export const MAIN_ROUTES: Routes = [
         loadChildren: './cars/cars.module#CarsModule'
       },
       {
+        path: 'equipment',
+        loadChildren: './equipment/equipment.module#EquipmentModule'
+      },
+      {
         path: '**',
         redirectTo: '/'
       }
