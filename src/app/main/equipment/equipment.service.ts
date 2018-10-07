@@ -26,6 +26,10 @@ export class EquipmentService {
     return this.http.get(`${this.requestUrl}/${id}`);
   }
 
+  findMinimal(): Observable<any> {
+    return this.http.get(`${this.requestUrl}/minimal`);
+  }
+
   save(equipmentItem: EquipmentItem): Observable<any> {
     return this.http.post(this.requestUrl, equipmentItem);
   }

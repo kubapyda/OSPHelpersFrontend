@@ -20,6 +20,10 @@ export const MAIN_ROUTES: Routes = [
         loadChildren: './firefighters/firefighters.module#FirefightersModule'
       },
       {
+        path: 'actions',
+        loadChildren: './actions/actions.module#ActionsModule'
+      },
+      {
         path: 'cars',
         loadChildren: './cars/cars.module#CarsModule'
       },

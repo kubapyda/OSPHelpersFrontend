@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { Injectable } from '@angular/core';
@@ -8,16 +10,16 @@ export class ModalService {
 
   constructor(private modal: MatDialog) {}
 
-  open(component, data: Object = {}) {
-    this.dialogRef = this.modal.open(component, {
+  open(component, data: Object = {}, options: Object = {}) {
+    this.dialogRef = this.modal.open(component, _.assignIn({
       width: '950px',
       disableClose: true,
       data: data
-    });
+    }, options));
     return this.dialogRef;
   }
 
-  close() {
-    this.dialogRef.close();
+  close(data?: Object) {
+    this.dialogRef.close(data);
   }
 }

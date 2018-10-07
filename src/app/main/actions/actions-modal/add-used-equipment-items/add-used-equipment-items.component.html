@@ -1,0 +1,34 @@
+<app-modal (submitFn)="add()">
+  <modal-header>
+    <span translate="actions.action.checkUsedEquipmentItems"></span>
+  </modal-header>
+  <modal-body>
+      <div class="container">
+          <div class="row">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let equipmentItem of equipmentItems; let idx = index; trackBy: idx">
+                  <td>
+                    <mat-checkbox [(ngModel)]="checkboxesModel[idx]" (click)="selectEquipmentItem(equipmentItem)"></mat-checkbox>
+                  </td>
+                  <td>
+                    <span [innerText]="equipmentItem.value"></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  </modal-body>
+  <modal-footer>
+    <button mat-raised-button class="primary">
+      <span translate="global.save"></span>
+    </button>
+  </modal-footer>
+</app-modal>

@@ -1,8 +1,8 @@
 import * as _ from 'lodash';
 
+import { Car, Minimal } from '@app/shared/model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-import { Car } from '@app/shared/model';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
@@ -23,6 +23,10 @@ export class CarsService {
 
   findById(id: number): Observable<any> {
     return this.http.get(`${this.requestUrl}/${id}`);
+  }
+
+  findMinimal(): Observable<Array<Minimal>> {
+    return this.http.get<Array<Minimal>>(`${this.requestUrl}/minimal`);
   }
 
   save(car: Car): Observable<Car> {

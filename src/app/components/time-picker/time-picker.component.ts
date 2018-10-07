@@ -2,27 +2,27 @@ import { Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-date-time-picker',
-  templateUrl: './date-time-picker.component.html',
-  styleUrls: ['./date-time-picker.component.scss'],
+  selector: 'app-time-picker',
+  templateUrl: './time-picker.component.html',
+  styleUrls: ['./time-picker.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      useExisting: forwardRef(() => DateTimePickerComponent)
+      useExisting: forwardRef(() => TimePickerComponent)
     }
   ]
 })
-export class DateTimePickerComponent implements ControlValueAccessor, OnInit {
+export class TimePickerComponent implements OnInit, ControlValueAccessor {
+
+  @Input()
+  placeholder: string;
+
   value: string;
-  @Input() name: string;
-  @Input() placeholder: string;
   onChange: Function = () => {};
   onTouched: Function = () => {};
 
-  constructor() {}
-
-  ngOnInit() {}
+  constructor() { }
 
   writeValue(value: any): void {
     this.value = value;
@@ -36,7 +36,11 @@ export class DateTimePickerComponent implements ControlValueAccessor, OnInit {
     this.onTouched = fn;
   }
 
-  changeDateValue(): void {
+  ngOnInit() {
+  }
+
+  changeTimeValue() {
     this.onChange(this.value);
   }
+
 }

@@ -5,7 +5,7 @@ import {
 } from '@angular/material';
 import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 
-import { DateTimePickerModule } from '@app/components/date-time-picker';
+import { DatePickerModule } from '@app/components/date-picker';
 import { FirefightersComponent } from './firefighters.component';
 import { FirefightersDeleteComponent } from './firefighters-delete/firefighters-delete.component';
 import { FirefightersModalComponent } from './firefighters-modal/firefighters-modal.component';
@@ -25,7 +25,7 @@ import { TableModule } from '@app/components/table';
     ModalModule,
     MatInputModule,
     MatSelectModule,
-    DateTimePickerModule,
+    DatePickerModule,
     FirefightersRoutingModule
   ],
   declarations: [

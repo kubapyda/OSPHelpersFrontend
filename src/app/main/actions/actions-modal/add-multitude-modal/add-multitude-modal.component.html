@@ -1,0 +1,45 @@
+<app-modal [formGroup]="addMultitudeForm" (submitFn)="add()">
+    <modal-header>
+      <span translate="actions.addMultitudeLabel"></span>
+    </modal-header>
+    <modal-body>
+      <div class="container">
+        <div class="row">
+          <div class="col-11">
+              <mat-form-field class="modal-input">
+                <mat-select formControlName="car" [placeholder]="'actions.multitude.car' | translate">
+                  <mat-option *ngFor="let car of cars" [value]="car.id">
+                    <span [innerText]="car.value"></span>
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-11">
+                <app-time-picker formControlName="departureTime" [placeholder]="'actions.multitude.departureTime' | translate"></app-time-picker>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-11">
+                <app-time-picker formControlName="arrivalTime" [placeholder]="'actions.multitude.arrivalTime' | translate"></app-time-picker>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-11">
+                <app-time-picker formControlName="completeActivityTime" [placeholder]="'actions.multitude.completeActivityTime' | translate"></app-time-picker>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-11">
+                <app-time-picker formControlName="returnTime" [placeholder]="'actions.multitude.returnTime' | translate"></app-time-picker>
+            </div>
+        </div>
+      </div>
+    </modal-body>
+    <modal-footer>
+      <button mat-raised-button class="primary" [disabled]="!addMultitudeForm.valid">
+        <span translate="actions.action.addLabel"></span>
+      </button>
+    </modal-footer>
+  </app-modal>

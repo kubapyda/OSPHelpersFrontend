@@ -10,7 +10,7 @@ import { CarsDeleteComponent } from './cars-delete/cars-delete.component';
 import { CarsModalComponent } from './cars-modal/cars-modal.component';
 import { CarsRoutingModule } from './cars.routing';
 import { CarsService } from './cars.service';
-import { DateTimePickerModule } from '@app/components/date-time-picker';
+import { DatePickerModule } from '@app/components/date-picker';
 import { ModalModule } from '@app/components/modal';
 import { PaginationModule } from '@app/components/pagination';
 import { SharedModule } from '@app/shared';
@@ -23,7 +23,7 @@ import { TableModule } from '@app/components/table';
     CarsRoutingModule,
     MatInputModule,
     MatSelectModule,
-    DateTimePickerModule,
+    DatePickerModule,
     MatButtonModule,
     TableModule,
     PaginationModule

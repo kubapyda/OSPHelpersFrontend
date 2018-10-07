@@ -7,6 +7,7 @@
     <td mat-cell [ngStyle]="{ 'width': def.width }" *matCellDef="let element">
       <span *ngIf="def.type === columnType.TEXT" [innerText]="element[def.name]"></span>
       <span *ngIf="def.type === columnType.DATE" [innerText]="element[def.name] | date: 'dd/MM/yyyy'"></span>
+      <span *ngIf="def.type === columnType.TIME" [innerText]="element[def.name] | date: 'HH:mm'"></span>
       <span *ngIf="def.type === columnType.TRANSLATE_TEXT" [translate]="def.translationPrefix + '.' + element[def.name]"></span>
       <button [matTooltip]="'global.edit' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.EDIT" [ngClass]="{'edit-icon': def.icon === iconTypes.EDIT}"
         (click)="onEditAction(element)">

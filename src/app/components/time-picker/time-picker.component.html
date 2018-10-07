@@ -1,0 +1,4 @@
+<mat-form-field class="modal-input">
+    <input matInput [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" [placeholder]="placeholder | translate" [(ngModel)]="value" (ngModelChange)="changeTimeValue()">
+</mat-form-field>
+<owl-date-time #dt1 pickerType="timer"></owl-date-time>

@@ -45,4 +45,8 @@ export class TableService {
   getConfig(): Array<Column> {
     return this.columns;
   }
+
+  clearColumns(): void {
+    this.columns = [];
+  }
 }

@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Firefighter } from '@app/shared/model';
+import { FirefighterType } from '@app/shared/enums';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
@@ -23,6 +24,10 @@ export class FirefightersService {
 
   findById(id: number): Observable<any> {
     return this.http.get(`${this.requestUrl}/${id}`);
+  }
+
+  findMinimal(type: FirefighterType): Observable<any> {
+    return this.http.get(`${this.requestUrl}/minimal/${type}`);
   }
 
   save(firefighter: Firefighter): Observable<any> {

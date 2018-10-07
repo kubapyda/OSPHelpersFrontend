@@ -5,3 +5,4 @@ export * from './tasks-car';
 export * from './car-weight';
 export * from './extinguishing-equpimnet';
 export * from './special-cars-purpose';
+export * from './actions-type';

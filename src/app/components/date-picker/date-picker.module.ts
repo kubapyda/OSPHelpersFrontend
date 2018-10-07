@@ -4,7 +4,7 @@ import {
   MatNativeDateModule
 } from '@angular/material';
 
-import { DateTimePickerComponent } from './date-time-picker.component';
+import { DatePickerComponent } from './date-picker.component';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@app/shared';
 
@@ -15,7 +15,7 @@ import { SharedModule } from '@app/shared';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  declarations: [DateTimePickerComponent],
-  exports: [DateTimePickerComponent]
+  declarations: [DatePickerComponent],
+  exports: [DatePickerComponent]
 })
-export class DateTimePickerModule {}
+export class DatePickerModule {}

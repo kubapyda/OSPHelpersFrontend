@@ -1,0 +1,51 @@
+{
+    "actions": {
+        "action": {
+            "add": "Dodaj wyjazd",
+            "addMultitude": "Dodaj zastęp",
+            "addFirefighters": "Dodaj strażaków",
+            "changeFirefightersList": "Zmień listę strażaków",
+            "checkUsedEquipmentItems": "Oznacz użyty sprzęt",
+            "addLabel": "Dodaj"
+        },
+        "usedEquipmentItems": {
+            "nonEquipmentItems": "Brak wybranego sprzętu użytego podczas działań ratowniczych.",
+            "id": "Id",
+            "name": "Nazwa"
+        },
+        "multitude": {
+            "car": "Pojazd",
+            "departureTime": "Godzina wyjazdu",
+            "arrivalTime": "Godzina dojazdu",
+            "completeActivityTime": "Godzina zakończenia działań",
+            "returnTime": "Godzina powrotu",
+            "nonMultitude": "Brak wybranych zastępów."
+        },
+        "firefighters": {
+            "name": "Imię i nazwisko",
+            "multitude": "Pojazd",
+            "nonFirefighters": "Brak wybranych strażaków. Aby wybrać strażaków musisz wybrać przynajmniej jeden zastęp."
+        },
+        "validation": {
+          "noCars": "Nie można dodać wyjazdu bez zdefiniowanego co najmniej jednego zastępu!",
+          "noFirefighters": "Nie można dodać wyjazdu bez dodania strażaków do zastępu!"
+        },
+        "addLabel": "Dodaj wyjazd",
+        "addMultitudeLabel": "Dodaj zastęp",
+        "addFirefightersLabel": "Dodaj strażaków",
+        "interventionType": "Rodzaj interwencji",
+        "date": "Data zdarzenia",
+        "time": "Czas zaalarmowania",
+        "eventAddress": "Adres zdarzenia",
+        "actionsType": {
+            "FIRE": "Pożar",
+            "COLLISION": "Kolizja",
+            "EXERCISES": "Ćwiczenia",
+            "LOCAL_RISK": "Miejscowe zagrożenie",
+            "SEARCH_RESCUE": "Ratownictwo poszukiwawcze",
+            "SECURITY": "Zabezpieczenie",
+            "ACCIDENT": "Wypadek",
+            "FALSE_ALARMS": "Fałszywe alarmy"
+        }
+    }
+}

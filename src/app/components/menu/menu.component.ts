@@ -28,7 +28,7 @@ export class MenuComponent implements OnDestroy {
       .save();
     this.menuService
       .addPosition('departures')
-      .addLink('')
+      .addLink('actions')
       .addTranslation('menu.departures')
       .addIcon('departures.png')
       .save();

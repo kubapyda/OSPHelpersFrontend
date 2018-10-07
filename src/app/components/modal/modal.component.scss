@@ -28,6 +28,11 @@
         width: 95%;
       }
     }
+    .col-10, .col-11 {
+      .modal-input {
+        width: 100%;
+      }
+    }
   }
 }
 

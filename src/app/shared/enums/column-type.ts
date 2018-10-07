@@ -3,5 +3,6 @@ export enum ColumnType {
   TRANSLATE_TEXT,
   DATE,
   DATE_TIME,
+  TIME,
   ICON
 }

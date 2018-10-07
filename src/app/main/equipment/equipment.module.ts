@@ -1,7 +1,7 @@
 import { MatButtonModule, MatInputModule } from '@angular/material';
 import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 
-import { DateTimePickerModule } from '@app/components/date-time-picker';
+import { DatePickerModule } from '@app/components/date-picker';
 import { EquipmentComponent } from './equipment.component';
 import { EquipmentDeleteComponent } from './equipment-delete/equipment-delete.component';
 import { EquipmentModalComponent } from './equipment-modal/equipment-modal.component';
@@ -18,7 +18,7 @@ import { TableModule } from '@app/components/table';
     MatButtonModule,
     ModalModule,
     MatInputModule,
-    DateTimePickerModule,
+    DatePickerModule,
     TableModule,
     PaginationModule,
     EquipmentRoutingModule
