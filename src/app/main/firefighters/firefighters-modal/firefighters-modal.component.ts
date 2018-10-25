@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 import { Component, Inject, OnInit } from '@angular/core';
 import { FirefighterType, Gender } from '@app/shared/enums';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -9,6 +11,7 @@ import { FirefightersService } from '@app/main/firefighters/firefighters.service
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { ModalService } from '@app/components/modal';
 import { SelectDictionary } from '@app/shared/model';
+import { validateFieldRequired } from '@app/components/validators';
 
 @Component({
   selector: 'app-firefighters-modal',
@@ -19,6 +22,7 @@ export class FirefightersModalComponent implements OnInit {
   firefightersForm: FormGroup;
   types: Array<SelectDictionary>;
   genders: Array<SelectDictionary>;
+  selectedFirefighterType: string;
 
   constructor(
     private fb: FormBuilder,
@@ -58,9 +62,19 @@ export class FirefightersModalComponent implements OnInit {
     }
   }
 
+  changeFirefighterType(): void {
+    this.selectedFirefighterType = this.firefightersForm.get('type').value;
+  }
+
   private saveFirefighter(): void {
+    let firefighterData;
+    if (this.firefightersForm.get('type').value === 'JOT') {
+      firefighterData = _.assignIn(this.firefightersForm.getRawValue(), this.prepareCourseAndMedicalExaminationEndDate());
+    } else {
+      firefighterData = _.omit(this.firefightersForm.getRawValue(), ['courseCompletitionDate', 'medicalExaminationDate']);
+    }
     this.firefightersService
-      .save(this.firefightersForm.getRawValue())
+      .save(firefighterData)
       .subscribe(
         (firefighter: Firefighter) => {
           this.toastr.success('firefighters.msg.create.success', {
@@ -70,6 +84,25 @@ export class FirefightersModalComponent implements OnInit {
         },
         () => this.toastr.error('firefighters.msg.create.error')
       );
+  }
+
+  private prepareCourseAndMedicalExaminationEndDate(): Object {
+    const courseCompletitionDate = this.firefightersForm.getRawValue().courseCompletitionDate;
+    const courseValidityEnd = new Date(
+      courseCompletitionDate.getFullYear() + 5,
+      courseCompletitionDate.getMonth(),
+      courseCompletitionDate.getDate()
+    );
+    const medicalExaminationDate = this.firefightersForm.getRawValue().medicalExaminationDate;
+    const endMedicalExaminationDate = new Date(
+      medicalExaminationDate.getFullYear() + 3,
+      medicalExaminationDate.getMonth(),
+      medicalExaminationDate.getDate()
+    );
+    return {
+      courseValidityEnd: courseValidityEnd,
+      endMedicalExaminationDate: endMedicalExaminationDate
+    };
   }
 
   private updateFirefighter(): void {
@@ -96,6 +129,8 @@ export class FirefightersModalComponent implements OnInit {
             surname: firefighter.surname,
             login: firefighter.login,
             gender: firefighter.gender,
+            courseCompletitionDate: firefighter.courseCompletitionDate,
+            medicalExaminationDate: firefighter.medicalExaminationDate,
             birthdayDate: firefighter.birthdayDate,
             entryDate: firefighter.entryDate,
             type: firefighter.type
@@ -109,10 +144,14 @@ export class FirefightersModalComponent implements OnInit {
       name: ['', Validators.required],
       surname: ['', Validators.required],
       login: [{ value: '', disabled: true }, Validators.required],
+      courseCompletitionDate: [null, [validateFieldRequired]],
+      medicalExaminationDate: [null, [validateFieldRequired]],
       gender: ['', Validators.required],
       birthdayDate: ['', Validators.required],
       entryDate: ['', Validators.required],
       type: ['', Validators.required]
+    }, {
+      validator: validateFieldRequired('medicalExaminationDate', 'courseCompletitionDate')
     });
   }
 }

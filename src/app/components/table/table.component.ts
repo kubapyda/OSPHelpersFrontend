@@ -47,6 +47,12 @@ export class TableComponent implements OnInit {
         '../../../assets/icons/venus-solid.svg'
       )
     );
+    iconRegistry.addSvgIcon(
+      'notesMedical',
+      sanitizer.bypassSecurityTrustResourceUrl(
+        '../../../assets/icons/notes-medical-solid.svg'
+      )
+    );
   }
 
   ngOnInit() {
@@ -63,6 +69,14 @@ export class TableComponent implements OnInit {
 
   isIcon(icon: IconType | undefined): boolean {
     return _.isNil(icon);
+  }
+
+  displayText(row: Object, path: string): string {
+    return _.get(row, path);
+  }
+
+  trackByFn(index: number) {
+    return index;
   }
 
   private createDisplayedColumns(): Array<string> {

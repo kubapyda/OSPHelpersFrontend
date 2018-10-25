@@ -3,6 +3,6 @@ export class PaginationConfig {
   size: string;
 
   constructor() {
-    this.size = '5';
+    this.size = '12';
   }
 }

@@ -6,6 +6,8 @@ export class Column {
   width: string;
   translation: string;
   translationPrefix: string;
+  tooltip: string;
   icon: IconType;
   type: ColumnType = ColumnType.TEXT;
+  columnAction: Function = () => {};
 }

@@ -1,12 +1,13 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table" [style.width]="tableWidth">
 
-  <ng-container *ngFor="let def of tableConfig" [matColumnDef]="def.name">
+  <ng-container *ngFor="let def of tableConfig; trackBy: trackByFn; let idx = index" [matColumnDef]="def.name">
     <th mat-header-cell *matHeaderCellDef [ngStyle]="{ 'width': def.width }">
       <span *ngIf="isIcon(def.icon) || def.icon === iconTypes.GENDER" [translate]="def.translation"></span>
     </th>
     <td mat-cell [ngStyle]="{ 'width': def.width }" *matCellDef="let element">
-      <span *ngIf="def.type === columnType.TEXT" [innerText]="element[def.name]"></span>
-      <span *ngIf="def.type === columnType.DATE" [innerText]="element[def.name] | date: 'dd/MM/yyyy'"></span>
+      <span *ngIf="def.type === columnType.TEXT && def.name !== 'index'" [innerText]="displayText(element, def.name)"></span>
+      <span *ngIf="def.type === columnType.TEXT && def.name === 'index'" [innerText]="idx + 1"></span>
+      <span *ngIf="def.type === columnType.DATE" [innerText]="element[def.name] | date: 'dd-MM-yyyy'"></span>
       <span *ngIf="def.type === columnType.TIME" [innerText]="element[def.name] | date: 'HH:mm'"></span>
       <span *ngIf="def.type === columnType.TRANSLATE_TEXT" [translate]="def.translationPrefix + '.' + element[def.name]"></span>
       <button [matTooltip]="'global.edit' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.EDIT" [ngClass]="{'edit-icon': def.icon === iconTypes.EDIT}"
@@ -16,6 +17,9 @@
       <button [matTooltip]="'global.remove' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.REMOVE" [ngClass]="{'delete-icon': def.icon === iconTypes.REMOVE}"
         (click)="onDeleteAction(element)">
         <mat-icon svgIcon="delete"></mat-icon>
+      </button>
+      <button [matTooltip]="def.tooltip | translate" class="edit-icon" matTooltipPosition="above" *ngIf="def.icon === iconTypes.MEDICAL_NOTES" (click)="def.columnAction(element)">
+        <mat-icon svgIcon="notesMedical"></mat-icon>
       </button>
 
       <span *ngIf="def.icon === iconTypes.GENDER">

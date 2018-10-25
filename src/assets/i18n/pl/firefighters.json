@@ -8,6 +8,8 @@
     "type": "Rodzaj",
     "gender": "Płeć",
     "addLabel": "Dodaj strażaka",
+    "courseCompletitionDate": "Data ukończenia kursu",
+    "medicalExaminationDate": "Data badań lekarskich",
     "action": {
       "add": "Dodaj strażaka"
     },

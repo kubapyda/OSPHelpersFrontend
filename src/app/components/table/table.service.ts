@@ -21,8 +21,18 @@ export class TableService {
     return this;
   }
 
+  addActionForColumn(action: Function) {
+    this.column.columnAction = action;
+    return this;
+  }
+
   setTranslationPrefix(translatePrefix: string) {
     this.column.translationPrefix = translatePrefix;
+    return this;
+  }
+
+  addTooltip(tooltip: string) {
+    this.column.tooltip = tooltip;
     return this;
   }
 
