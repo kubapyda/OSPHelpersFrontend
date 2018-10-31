@@ -1,0 +1,25 @@
+<app-modal [formGroup]="medicalExaminationForm" (submitFn)="save()">
+  <modal-header>
+    <span translate="medicalExamination.medicalExaminationModalLabel"></span>
+  </modal-header>
+  <modal-body>
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <app-date-picker formControlName="medicalExaminationDate" placeholder="medicalExamination.medicalExaminationDate"></app-date-picker>
+        </div>
+        <div class="col-6">
+          <button mat-raised-button class="primary" [disabled]="!medicalExaminationForm.valid">
+            <span translate="global.save"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-12">
+          <app-table [config]="tableConfiguration" [dataSource]="tableData"></app-table>
+        </div>
+      </div>
+    </div>
+  </modal-body>
+</app-modal>

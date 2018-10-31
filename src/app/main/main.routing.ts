@@ -28,6 +28,10 @@ export const MAIN_ROUTES: Routes = [
         loadChildren: './cars/cars.module#CarsModule'
       },
       {
+        path: 'medical-examination',
+        loadChildren: './medical-examination/medical-examination.module#MedicalExaminationModule'
+      },
+      {
         path: 'equipment',
         loadChildren: './equipment/equipment.module#EquipmentModule'
       },

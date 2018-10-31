@@ -1,0 +1,15 @@
+{
+  "medicalExamination": {
+    "name": "Imię i nazwisko",
+    "medicalExaminationDate": "Data badań lekarskich",
+    "endMedicalExaminationDate": "Koniec obowiązywania badań lekarskich",
+    "medicalExaminationModalLabel": "Historia, oraz dodawanie badań",
+    "ordinalNumber": "Lp.",
+    "msg": {
+      "create": {
+        "success": "Pomyślnie dodano nowy termin obowiązywania badań dla strażaka {{name}}",
+        "error": "Nie udało się dodać nowego terminu obowiązywania badań"
+      }
+    }
+  }
+}

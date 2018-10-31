@@ -5,3 +5,4 @@ export * from './select-dictionary';
 export * from './car';
 export * from './equipment-item';
 export * from './minimal';
+export * from './medical-examination';
