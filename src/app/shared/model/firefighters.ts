@@ -12,6 +12,8 @@ export class Firefighter {
   birthdayDate: Date;
   entryDate: Date;
   type: FirefighterType;
+  role: string;
+  firstLogin: boolean;
   createdAt?: Date;
   updatedAt?: Date;
 }

@@ -18,7 +18,7 @@ export class LoginComponent {
 
   private createCredentialsForm() {
     return this.fb.group({
-      username: [''],
+      login: [''],
       password: ['']
     });
   }

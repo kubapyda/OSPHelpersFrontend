@@ -1,10 +1,11 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injector, NgModule } from '@angular/core';
 import { LanguageService, TranslateResolver } from '@app/core/language';
 import { LoginService, UserAccessGuard } from '@app/core/auth';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { AppToastrService } from './toastr/app-toastr.service';
+import { AuthInterceptor } from './auth/auth-interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { EnumService } from './enum/enum.service';
@@ -36,7 +37,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     TranslateResolver,
     AppToastrService,
     EnumService,
-    UserAccessGuard
+    UserAccessGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ]
 })
 export class CoreModule {

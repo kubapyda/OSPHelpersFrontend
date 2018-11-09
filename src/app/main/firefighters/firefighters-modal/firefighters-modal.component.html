@@ -53,7 +53,7 @@
       </div>
 
       <div class="row">
-        <div class="col-6 align-self-start">
+        <div class="col-6">
           <mat-form-field class="modal-input">
             <mat-select formControlName="gender" [placeholder]="'firefighters.gender' | translate">
               <mat-option *ngFor="let gender of genders" [value]="gender.value">
@@ -61,6 +61,11 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-checkbox class="d-block mt-4" formControlName="role">
+            <span translate="firefighters.administrator"></span>
+          </mat-checkbox>
         </div>
       </div>
 

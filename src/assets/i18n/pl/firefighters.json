@@ -10,6 +10,7 @@
     "addLabel": "Dodaj strażaka",
     "courseCompletitionDate": "Data ukończenia kursu",
     "medicalExaminationDate": "Data badań lekarskich",
+    "administrator": "Administrator",
     "action": {
       "add": "Dodaj strażaka"
     },

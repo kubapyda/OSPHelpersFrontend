@@ -6,3 +6,4 @@ export * from './car';
 export * from './equipment-item';
 export * from './minimal';
 export * from './medical-examination';
+export * from './credentials';

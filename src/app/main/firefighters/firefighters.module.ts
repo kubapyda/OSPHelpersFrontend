@@ -1,5 +1,6 @@
 import {
   MatButtonModule,
+  MatCheckboxModule,
   MatInputModule,
   MatSelectModule
 } from '@angular/material';
@@ -25,6 +26,7 @@ import { TableModule } from '@app/components/table';
     ModalModule,
     MatInputModule,
     MatSelectModule,
+    MatCheckboxModule,
     DatePickerModule,
     FirefightersRoutingModule
   ],

@@ -73,6 +73,7 @@ export class FirefightersModalComponent implements OnInit {
     } else {
       firefighterData = _.omit(this.firefightersForm.getRawValue(), ['courseCompletitionDate', 'medicalExaminationDate']);
     }
+    firefighterData.role = firefighterData.role ? 'ADMIN' : 'USER';
     this.firefightersService
       .save(firefighterData)
       .subscribe(
@@ -106,8 +107,10 @@ export class FirefightersModalComponent implements OnInit {
   }
 
   private updateFirefighter(): void {
+    const firefighterData = this.firefightersForm.getRawValue();
+    firefighterData.role = firefighterData.role ? 'ADMIN' : 'USER';
     this.firefightersService
-      .update(this.data.id, this.firefightersForm.getRawValue())
+      .update(this.data.id, firefighterData)
       .subscribe(
         (firefighter: Firefighter) => {
           this.toastr.success('firefighters.msg.update.success', {
@@ -149,7 +152,8 @@ export class FirefightersModalComponent implements OnInit {
       gender: ['', Validators.required],
       birthdayDate: ['', Validators.required],
       entryDate: ['', Validators.required],
-      type: ['', Validators.required]
+      type: ['', Validators.required],
+      role: [false]
     }, {
       validator: validateFieldRequired('medicalExaminationDate', 'courseCompletitionDate')
     });
