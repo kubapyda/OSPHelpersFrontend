@@ -2,7 +2,7 @@
 
   <ng-container *ngFor="let def of tableConfig; trackBy: trackByFn; let idx = index" [matColumnDef]="def.name">
     <th mat-header-cell *matHeaderCellDef [ngStyle]="{ 'width': def.width }">
-      <span *ngIf="isIcon(def.icon) || def.icon === iconTypes.GENDER" [translate]="def.translation"></span>
+      <span *ngIf="isIcon(def.icon) || def.icon === iconTypes.GENDER || def.icon === iconTypes.CUSTOM" [matTooltip]="def.translationTooltip | translate" matTooltipPosition="above" [translate]="def.translation"></span>
     </th>
     <td mat-cell [ngStyle]="{ 'width': def.width }" *matCellDef="let element; let dataIdx = index">
       <span *ngIf="def.type === columnType.TEXT && def.name !== 'index'" [innerText]="displayText(element, def.name)"></span>
@@ -20,6 +20,9 @@
       </button>
       <button [matTooltip]="def.tooltip | translate" class="edit-icon" matTooltipPosition="above" *ngIf="def.icon === iconTypes.MEDICAL_NOTES" (click)="def.columnAction(element)">
         <mat-icon svgIcon="notesMedical"></mat-icon>
+      </button>
+      <button *ngIf="def.icon === iconTypes.CUSTOM" [ngClass]="def.iconClassStr ? def.iconClassStr : def.iconClass(element[def.name])" (click)="def.columnAction(element, def.name)">
+        <mat-icon [svgIcon]="def.iconName"></mat-icon>
       </button>
 
       <span *ngIf="def.icon === iconTypes.GENDER">

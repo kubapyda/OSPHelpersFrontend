@@ -6,3 +6,5 @@ export * from './car-weight';
 export * from './extinguishing-equpimnet';
 export * from './special-cars-purpose';
 export * from './actions-type';
+export * from './course-kind';
+export * from './course-icon-type';

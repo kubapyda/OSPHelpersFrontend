@@ -2,5 +2,6 @@ export enum IconType {
   EDIT,
   REMOVE,
   GENDER,
-  MEDICAL_NOTES
+  MEDICAL_NOTES,
+  CUSTOM
 }

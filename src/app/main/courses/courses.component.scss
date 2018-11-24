@@ -1,0 +1,27 @@
+@mixin iconColor($color) {
+  color: $color;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+::ng-deep .custom-table {
+  width: 50%;
+  tr td button {
+    &.course-actual {
+      @include iconColor(#24d539);
+    }
+    &.course-warn {
+      @include iconColor(#e8fb27);
+    }
+    &.course-error {
+      @include iconColor(#ff8300);
+    }
+    &.course-not-actual {
+      @include iconColor(#b71427);
+    }
+    &.non-course {
+      display: none;
+    }
+  }
+}

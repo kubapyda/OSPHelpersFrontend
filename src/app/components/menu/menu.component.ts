@@ -46,7 +46,7 @@ export class MenuComponent implements OnDestroy {
       .save();
     this.menuService
       .addPosition('courses')
-      .addLink('')
+      .addLink('courses')
       .addTranslation('menu.courses')
       .addIcon('courses.png')
       .save();

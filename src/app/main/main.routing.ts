@@ -32,6 +32,10 @@ export const MAIN_ROUTES: Routes = [
         loadChildren: './medical-examination/medical-examination.module#MedicalExaminationModule'
       },
       {
+        path: 'courses',
+        loadChildren: './courses/courses.module#CoursesModule'
+      },
+      {
         path: 'equipment',
         loadChildren: './equipment/equipment.module#EquipmentModule'
       },

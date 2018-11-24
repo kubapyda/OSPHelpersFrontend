@@ -12,6 +12,9 @@ export class UserAccessGuard implements CanActivate {
     const token = sessionStorage.getItem('authorization-token');
     if (token) {
       const helper = new JwtHelperService();
+      if (helper.isTokenExpired(token)) {
+          this.router.navigate(['login']);
+      }
       return !helper.isTokenExpired(token);
     }
     this.router.navigate(['login']);

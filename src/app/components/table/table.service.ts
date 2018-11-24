@@ -1,3 +1,5 @@
+import * as _ from 'lodash';
+
 import { Column } from '@app/components/table/models';
 import { ColumnType } from '@app/shared/enums';
 import { IconType } from './models/icon-type';
@@ -36,14 +38,29 @@ export class TableService {
     return this;
   }
 
+  addHeaderTooltip(tooltip: string) {
+    this.column.translationTooltip = tooltip;
+    return this;
+  }
+
   addTranslation(translation: string) {
     this.column.translation = translation;
     return this;
   }
 
-  addIcon(iconType: IconType) {
+  addIcon(iconType: IconType, width?: string, iconName?: string) {
     this.column.icon = iconType;
-    this.column.width = '50px';
+    this.column.width = width ? width : '50px';
+    this.column.iconName = iconName;
+    return this;
+  }
+
+  addIconClass(iconClass: Function | string) {
+    if (_.isString(iconClass)) {
+      this.column.iconClassStr = iconClass as string;
+    } else {
+      this.column.iconClass = iconClass as Function;
+    }
     return this;
   }
 

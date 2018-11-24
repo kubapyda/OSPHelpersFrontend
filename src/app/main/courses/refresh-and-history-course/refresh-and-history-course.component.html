@@ -1,0 +1,32 @@
+<app-modal [formGroup]="refreshCourseForm" (submitFn)="save()">
+  <modal-header>
+    <span translate="courses.refreshAndHistoryLabel"></span>
+  </modal-header>
+  <modal-body>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <app-date-picker formControlName="courseCompletitionDate" placeholder="courses.courseCompleting"></app-date-picker>
+          </div>
+          <div class="col-6">
+            <app-date-picker formControlName="courseValidityEnd" placeholder="courses.applicationDate"></app-date-picker>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h2 translate="courses.courseHistory"></h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mb-3">
+            <app-table [dataSource]="tableData" [config]="tableConfiguration"></app-table>
+          </div>
+        </div>
+      </div>
+  </modal-body>
+  <modal-footer>
+    <button mat-raised-button class="primary" [disabled]="!refreshCourseForm.valid">
+      <span translate="global.save"></span>
+    </button>
+  </modal-footer>
+</app-modal>

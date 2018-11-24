@@ -1,0 +1,47 @@
+{
+  "courses": {
+    "addLabel": "Dodaj kurs",
+    "refreshAndHistoryLabel": "Historia, oraz odświeżanie kursu",
+    "courseCompleting": "Data ukończenia kursu",
+    "applicationDate": "Data obowiązywania",
+    "name": "Imię i nazwisko",
+    "ordinalNumber": "Lp.",
+    "courseHistory": "Historia",
+    "message": {
+      "success": "Pomyślnie dodano nowy kurs.",
+      "error": "Błąd podczas dodawania nowego kursu",
+      "refresh": {
+        "success": "Pomyślnie odświeżono kurs.",
+        "error": "Błąd podczas odświeżania kursu"
+      }
+    },
+    "kind": {
+      "name": "Rodzaj kursu",
+      "BASIC": "Podstawowe",
+      "TECHNICAL_RESCUE": "Ratownictwo techniczne",
+      "TechnicalRescueShortcut": "Rat. tech.",
+      "FIRST_AID": "Pierwsza pomoc medyczna",
+      "FirstAidShortcut": "Pier. pom.",
+      "WATER_RESCUE": "Ratownictwo wodne",
+      "WaterRescueScortcut": "Rat. wod.",
+      "HARDWARE_CONSERVATOR": "Konserwator sprzętu",
+      "HardwareConservatorShortcut": "Kons. sprz.",
+      "CHEMICAL_AND_ECOLOGICAL_RESCUE": "Ratownictwo chemiczne i ekologiczne",
+      "ChemicalAndEcologicalRescueShortcut": "Rat. chem.",
+      "ALTITUDE_RESCUE": "Ratownictwo wysokościowe",
+      "AltitudeRescueShortcut": "Rat. wys.",
+      "SERVICE_CAR_WITH_LIFT": "Obsługa i konserwacja samochodów z podnośnikiem",
+      "ServiceCarWithLiftShortcut": "Podnośnik",
+      "SERVICE_CAR_WITH_LADY": "Obsługa i konserwacja samochodów z drabiną mechaniczną",
+      "ServiceCarWithLadyShortcut": "Drabina",
+      "SEARCH_AND_RESCUE": "Poszukiwawczo-Ratownicze",
+      "SearchAndRescueShortcut": "Posz.-Rat.",
+      "COMMANDERS": "Dla dowódców",
+      "CommandersShortcut": "Dowódca",
+      "WARDROBES": "Dla naczelników",
+      "WardrobesShortcut": "Naczelnik",
+      "COMMUNES_COMMANDER": "Dla komendantów gminnych",
+      "CommunmesCommanderShortcut": "Komendant"
+    }
+  }
+}

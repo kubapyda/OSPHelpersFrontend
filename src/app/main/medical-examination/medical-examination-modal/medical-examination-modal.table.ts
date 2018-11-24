@@ -1,5 +1,4 @@
-import { Column, IconType } from '@app/components/table/models';
-
+import { Column } from '@app/components/table/models';
 import { ColumnType } from '@app/shared/enums';
 import { Injectable } from '@angular/core';
 import { ModalService } from '@app/components/modal';
