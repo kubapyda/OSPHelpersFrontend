@@ -1,6 +1,8 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
+import { MatDatepicker } from '@angular/material';
+
 @Component({
   selector: 'app-date-picker',
   templateUrl: './date-picker.component.html',
@@ -14,9 +16,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class DatePickerComponent implements ControlValueAccessor {
-  value: string;
-  @Input() name: string;
-  @Input() placeholder: string;
+  value: string | Date;
+  @Input()
+  name: string;
+  @Input()
+  placeholder: string;
+  @Input()
+  mode: string;
   onChange: Function = () => {};
   onTouched: Function = () => {};
 
@@ -36,5 +42,13 @@ export class DatePickerComponent implements ControlValueAccessor {
 
   changeDateValue(): void {
     this.onChange(this.value);
+  }
+
+  _selectYear(evt: Date, datepicker: MatDatepicker<any>) {
+    if (this.mode === 'year') {
+      datepicker.close();
+      this.value = evt;
+      this.onChange(this.value);
+    }
   }
 }

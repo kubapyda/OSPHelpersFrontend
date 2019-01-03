@@ -72,7 +72,7 @@ export class TableComponent implements OnInit {
   }
 
   displayText(row: Object, path: string): string {
-    return _.get(row, path);
+    return _.get(row, path) ? _.get(row, path) : '';
   }
 
   trackByFn(index: number) {

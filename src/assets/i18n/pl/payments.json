@@ -1,0 +1,15 @@
+{
+  "payments": {
+    "name": "Imię i nazwisko",
+    "lastPayments": "Ostatni opłacony rok",
+    "addLabel": "Historia, oraz dodawanie składek",
+    "payedYear": "Opłacony rok",
+    "ordinalNumber": "Lp.",
+    "msg": {
+      "create": {
+        "success": "Pomyślnie dodano nowo opłaconą składkę dla strażaka {{name}}",
+        "error": "Nie udało się dodać nowo opłaconej składki"
+      }
+    }
+  }
+}

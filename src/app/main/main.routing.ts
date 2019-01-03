@@ -36,6 +36,10 @@ export const MAIN_ROUTES: Routes = [
         loadChildren: './courses/courses.module#CoursesModule'
       },
       {
+        path: 'payments',
+        loadChildren: './payments/payments.module#PaymentsModule'
+      },
+      {
         path: 'equipment',
         loadChildren: './equipment/equipment.module#EquipmentModule'
       },

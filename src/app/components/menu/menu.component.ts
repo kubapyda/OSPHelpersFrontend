@@ -52,7 +52,7 @@ export class MenuComponent implements OnDestroy {
       .save();
     this.menuService
       .addPosition('fees')
-      .addLink('')
+      .addLink('payments')
       .addTranslation('menu.fees')
       .addIcon('fees.png')
       .save();

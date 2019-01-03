@@ -4,24 +4,19 @@ import { Injectable } from '@angular/core';
 import { TableService } from '@app/components/table';
 
 @Injectable()
-export class MedicalExaminationModalTable {
+export class PaymentsModalTable {
   constructor(private table: TableService) {}
 
   getConfig(): Array<Column> {
     this.table.clearColumns();
     this.table
       .addColumn('index')
-      .addTranslation('medicalExamination.ordinalNumber')
+      .addTranslation('payments.ordinalNumber')
       .save();
     this.table
-      .addColumn('medicalExaminationDate')
-      .setColumnType(ColumnType.DATE)
-      .addTranslation('medicalExamination.medicalExaminationDate')
-      .save();
-    this.table
-      .addColumn('endMedicalExaminationDate')
-      .setColumnType(ColumnType.DATE)
-      .addTranslation('medicalExamination.endMedicalExaminationDate')
+      .addColumn('paidYear')
+      .setColumnType(ColumnType.TEXT)
+      .addTranslation('payments.payedYear')
       .save();
 
     return this.table.getConfig();
