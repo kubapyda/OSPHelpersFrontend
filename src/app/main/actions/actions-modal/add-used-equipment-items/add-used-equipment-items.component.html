@@ -13,7 +13,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let equipmentItem of equipmentItems; let idx = index; trackBy: idx">
+                <tr *ngFor="let equipmentItem of equipmentItems; let idx = index; trackBy: trackByFn">
                   <td>
                     <mat-checkbox [(ngModel)]="checkboxesModel[idx]" (click)="selectEquipmentItem(equipmentItem)"></mat-checkbox>
                   </td>

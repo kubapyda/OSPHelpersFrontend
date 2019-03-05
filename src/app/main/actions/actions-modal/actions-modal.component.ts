@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Minimal, SelectDictionary } from '@app/shared/model';
 
 import { ActionsModalTable } from './actions-modal.table';
+import { ActionsService } from './../actions.service';
 import { ActionsType } from '@app/shared/enums';
 import { AddFirefightersComponent } from './add-firefighters/add-firefighters.component';
 import { AddMultitudeModalComponent } from './add-multitude-modal/add-multitude-modal.component';
@@ -36,6 +37,7 @@ export class ActionsModalComponent implements OnInit {
     private modal: ModalService,
     private enumService: EnumService,
     private toastr: AppToastrService,
+    private actionsService: ActionsService,
     private actionsModalTable: ActionsModalTable
   ) {}
 
@@ -55,6 +57,12 @@ export class ActionsModalComponent implements OnInit {
         firefighters: this.firefighters
       };
       const dataToSend = _.assignIn(this.actionForm.value, data);
+      this.actionsService.save(dataToSend).subscribe(actionData => {
+        this.toastr.success('actions.messages.success', { id: actionData.id });
+        this.modal.close();
+      }, () => {
+        this.toastr.error('actions.messages.error');
+      });
     }
   }
 

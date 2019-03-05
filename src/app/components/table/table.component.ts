@@ -75,6 +75,10 @@ export class TableComponent implements OnInit {
     return _.get(row, path) ? _.get(row, path) : '';
   }
 
+  displayList(list: string[]): string {
+    return list.join(', ');
+  }
+
   trackByFn(index: number) {
     return index;
   }

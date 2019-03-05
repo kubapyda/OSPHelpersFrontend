@@ -42,6 +42,9 @@ export class AddUsedEquipmentItemsComponent implements OnInit {
     }
   }
 
+  trackByFn(_, index: number): number {
+    return index;
+  }
 
   private loadMinimaEquipmentItems() {
       this.equipmentService.findMinimal().subscribe((equipmentItems: Array<Minimal>) => {

@@ -19,6 +19,14 @@
         height: 20px;
       }
     }
+    .list-text {
+      display: inline-block;
+      height: 16px;
+      width: inherit;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
     .man-icon {
       color: #4a96ad;
     }

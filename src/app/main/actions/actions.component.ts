@@ -39,6 +39,10 @@ export class ActionsComponent implements OnInit {
       .subscribe(() => this.loadActions());
   }
 
-  private loadActions(params: Object = { page: 1 }): void {}
+  private loadActions(params: Object = { page: 1 }): void {
+    this.actionsService.query().subscribe(data => {
+      this.tableData = data;
+    });
+  }
 
 }

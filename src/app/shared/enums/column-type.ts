@@ -4,5 +4,6 @@ export enum ColumnType {
   DATE,
   DATE_TIME,
   TIME,
-  ICON
+  ICON,
+  LIST
 }

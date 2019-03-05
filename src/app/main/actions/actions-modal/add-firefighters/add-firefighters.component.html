@@ -8,13 +8,13 @@
           <table>
             <thead>
               <tr>
-                <th *ngFor="let car of data.cars; let idx = index; trackBy: idx" [innerText]="car['car']"></th>
+                <th *ngFor="let car of data.cars; let idx = index; trackBy: trackByFn" [innerText]="car['car']"></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let firefighter of firefighters; let fIdx = index; trackBy: fIdx">
-                <td *ngFor="let car of data.cars; let idx = index; trackBy: idx">
+              <tr *ngFor="let firefighter of firefighters; let fIdx = index; trackBy: trackByFn">
+                <td *ngFor="let car of data.cars; let idx = index; trackBy: trackByFn">
                   <mat-checkbox [(ngModel)]="checkedFirefighters[idx][fIdx].checked" (click)="selectFirefighter(firefighter, fIdx, idx)"></mat-checkbox>
                 </td>
                 <td>

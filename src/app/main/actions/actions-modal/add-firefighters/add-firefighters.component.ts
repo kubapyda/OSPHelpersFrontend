@@ -49,6 +49,10 @@ export class AddFirefightersComponent implements OnInit {
     this.modal.close(preparedFirefighters);
   }
 
+  trackByFn(_, index: number): number {
+    return index;
+  }
+
   private loadMinimalFirefighters() {
     this.firefighterService.findMinimal(FirefighterType.JOT).subscribe((data: Array<Minimal>) => {
       this.firefighters = data;

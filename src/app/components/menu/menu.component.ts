@@ -25,42 +25,51 @@ export class MenuComponent implements OnDestroy {
       .addLink('firefighters')
       .addTranslation('menu.firefighters')
       .addIcon('firefighters.png')
+      .setPermision('ADMIN')
       .save();
     this.menuService
       .addPosition('departures')
       .addLink('actions')
       .addTranslation('menu.departures')
       .addIcon('departures.png')
+      .setPermision(['ADMIN', 'USER'])
       .save();
     this.menuService
       .addPosition('cars')
       .addLink('cars')
       .addTranslation('menu.cars')
       .addIcon('cars.png')
+      .setPermision('ADMIN')
       .save();
     this.menuService
       .addPosition('medicalExamination')
       .addLink('medical-examination')
       .addTranslation('menu.medicalExamination')
       .addIcon('medicalExamination.png')
+      .setPermision(['ADMIN', 'USER'])
       .save();
     this.menuService
       .addPosition('courses')
       .addLink('courses')
       .addTranslation('menu.courses')
       .addIcon('courses.png')
+      .setPermision(['ADMIN', 'USER'])
+      .setVisibility(false)
       .save();
     this.menuService
       .addPosition('fees')
       .addLink('payments')
       .addTranslation('menu.fees')
       .addIcon('fees.png')
+      .setPermision(['ADMIN', 'USER'])
       .save();
     this.menuService
       .addPosition('equipmentInvetory')
       .addLink('equipment')
       .addTranslation('menu.equipmentInvetory')
       .addIcon('equipmentInvetory.png')
+      .setPermision('ADMIN')
+      .setVisibility(false)
       .save();
     return this.menuService.getMenu();
   }

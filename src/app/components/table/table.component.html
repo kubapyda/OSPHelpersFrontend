@@ -2,7 +2,11 @@
 
   <ng-container *ngFor="let def of tableConfig; trackBy: trackByFn; let idx = index" [matColumnDef]="def.name">
     <th mat-header-cell *matHeaderCellDef [ngStyle]="{ 'width': def.width }">
-      <span *ngIf="isIcon(def.icon) || def.icon === iconTypes.GENDER || def.icon === iconTypes.CUSTOM" [matTooltip]="def.translationTooltip | translate" matTooltipPosition="above" [translate]="def.translation"></span>
+      <span *ngIf="isIcon(def.icon) || def.icon === iconTypes.GENDER || def.icon === iconTypes.CUSTOM"
+        [matTooltip]="def.translationTooltip | translate"
+        matTooltipPosition="above"
+        [translate]="def.translation">
+      </span>
     </th>
     <td mat-cell [ngStyle]="{ 'width': def.width }" *matCellDef="let element; let dataIdx = index">
       <span *ngIf="def.type === columnType.TEXT && def.name !== 'index'" [innerText]="displayText(element, def.name)"></span>
@@ -10,8 +14,16 @@
       <span *ngIf="def.type === columnType.DATE" [innerText]="element[def.name] | date: 'dd-MM-yyyy'"></span>
       <span *ngIf="def.type === columnType.TIME" [innerText]="element[def.name] | date: 'HH:mm'"></span>
       <span *ngIf="def.type === columnType.TRANSLATE_TEXT" [translate]="def.translationPrefix + '.' + element[def.name]"></span>
-      <button [matTooltip]="'global.edit' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.EDIT" [ngClass]="{'edit-icon': def.icon === iconTypes.EDIT}"
-        (click)="onEditAction(element)">
+      <span *ngIf="def.type === columnType.LIST" class="list-text"
+        [innerText]="displayList(element[def.name])"
+        [matTooltip]="displayList(element[def.name])"
+        matTooltipPosition="above">
+      </span>
+      <button [matTooltip]="'global.edit' | translate"
+        matTooltipPosition="above"
+        *ngIf="def.icon === iconTypes.EDIT" [ngClass]="{'edit-icon': def.icon === iconTypes.EDIT}"
+        (click)="onEditAction(element)"
+        [disabled]="def.iconDisabled">
         <mat-icon svgIcon="edit" color="warning"></mat-icon>
       </button>
       <button [matTooltip]="'global.remove' | translate" matTooltipPosition="above" *ngIf="def.icon === iconTypes.REMOVE" [ngClass]="{'delete-icon': def.icon === iconTypes.REMOVE}"

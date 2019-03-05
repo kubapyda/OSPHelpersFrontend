@@ -30,6 +30,10 @@
           "noCars": "Nie można dodać wyjazdu bez zdefiniowanego co najmniej jednego zastępu!",
           "noFirefighters": "Nie można dodać wyjazdu bez dodania strażaków do zastępu!"
         },
+        "messages": {
+          "success": "Wyjazd o identyfikatorze {{ id }} został dodany",
+          "error": "Nie udało się dodać wyjazdu"
+        },
         "addLabel": "Dodaj wyjazd",
         "addMultitudeLabel": "Dodaj zastęp",
         "addFirefightersLabel": "Dodaj strażaków",
@@ -37,6 +41,9 @@
         "date": "Data zdarzenia",
         "time": "Czas zaalarmowania",
         "eventAddress": "Adres zdarzenia",
+        "reportNumber": "Numer meldunku",
+        "firefightersName": "Strażacy",
+        "multitudeName": "Zastępy",
         "actionsType": {
             "FIRE": "Pożar",
             "COLLISION": "Kolizja",

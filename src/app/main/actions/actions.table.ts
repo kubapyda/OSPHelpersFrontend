@@ -10,19 +10,40 @@ export class ActionsTable {
 
   getConfig(): Array<Column> {
     this.table
-      .addColumn('edit')
-      .setColumnType(ColumnType.ICON)
-      .addIcon(IconType.EDIT)
-      .save();
-    this.table
       .addColumn('id', '51px')
       .addTranslation('global.id')
       .save();
     this.table
-      .addColumn('remove')
-      .setColumnType(ColumnType.ICON)
-      .addIcon(IconType.REMOVE)
+      .addColumn('kind')
+      .setColumnType(ColumnType.TRANSLATE_TEXT)
+      .addTranslation('actions.interventionType')
+      .setTranslationPrefix('actions.actionsType')
       .save();
+    this.table
+      .addColumn('date')
+      .setColumnType(ColumnType.DATE)
+      .addTranslation('actions.date')
+      .save();
+    this.table
+      .addColumn('eventAddress')
+      .addTranslation('actions.eventAddress')
+      .save();
+    this.table
+      .addColumn('time')
+      .setColumnType(ColumnType.TIME)
+      .addTranslation('actions.time')
+      .save();
+    this.table
+      .addColumn('cars')
+      .setColumnType(ColumnType.LIST)
+      .addTranslation('actions.multitudeName')
+      .save();
+    this.table
+      .addColumn('firefighters', '250px')
+      .setColumnType(ColumnType.LIST)
+      .addTranslation('actions.firefightersName')
+      .save();
+
     return this.table.getConfig();
   }
 }
