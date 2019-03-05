@@ -1,0 +1,12 @@
+.payments-details {
+  width: 502px;
+  .text-bold {
+    font-weight: bold;
+    .paid {
+      color: #24d539;
+    }
+    .not-paid {
+      color: #b71427;
+    }
+  }
+}

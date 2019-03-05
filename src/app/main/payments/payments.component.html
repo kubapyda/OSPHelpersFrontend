@@ -1,2 +1,19 @@
-<app-table [config]="tableConfiguration" [dataSource]="tableData" [tableWidth]="'550px'"></app-table>
-<app-pagination [config]="paginationConfig" (page)="changePage($event)"></app-pagination>
+<ng-container *appHasAnyAuthority="'ADMIN'">
+    <app-table [config]="tableConfiguration" [dataSource]="tableData" [tableWidth]="'550px'"></app-table>
+    <app-pagination [config]="paginationConfig" (page)="changePage($event)"></app-pagination>
+</ng-container>
+<ng-container *appHasAnyAuthority="'USER'">
+    <mat-card class="mb-3 payments-details">
+      <mat-card-content>
+        <p>
+          <span translate="payments.status"></span>:
+          <span class="text-bold">
+            <span class="paid" translate="payments.paid" *ngIf="lastPayment.isPaid"></span>
+            <span class="not-paid" translate="payments.notPaid" *ngIf="!lastPayment.isPaid"></span>
+          </span>
+        </p>
+        <p><span translate="payments.lastPayments"></span>: <span class="text-bold" [innerText]="lastPayment.lastPaidYear"></span></p>
+      </mat-card-content>
+    </mat-card>
+    <app-table [config]="tableConfiguration" [dataSource]="tableData" [tableWidth]="'550px'"></app-table>
+</ng-container>

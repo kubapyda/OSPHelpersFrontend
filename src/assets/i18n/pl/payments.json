@@ -5,6 +5,9 @@
     "addLabel": "Historia, oraz dodawanie składek",
     "payedYear": "Opłacony rok",
     "ordinalNumber": "Lp.",
+    "status": "Status",
+    "paid": "OPŁACONY",
+    "notPaid": "NIEOPŁACONY",
     "msg": {
       "create": {
         "success": "Pomyślnie dodano nowo opłaconą składkę dla strażaka {{name}}",

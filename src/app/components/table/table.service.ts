@@ -55,6 +55,11 @@ export class TableService {
     return this;
   }
 
+  setIconDisabled() {
+    this.column.iconDisabled = true;
+    return this;
+  }
+
   addIconClass(iconClass: Function | string) {
     if (_.isString(iconClass)) {
       this.column.iconClassStr = iconClass as string;

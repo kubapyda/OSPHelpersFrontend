@@ -10,6 +10,7 @@ export class Column {
   tooltip: string;
   icon: IconType;
   iconName: string;
+  iconDisabled = false;
   type: ColumnType = ColumnType.TEXT;
   iconClassStr: string;
   iconClass: Function = () => {};

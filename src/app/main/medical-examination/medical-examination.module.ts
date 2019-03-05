@@ -1,7 +1,7 @@
+import { MatButtonModule, MatCardModule } from '@angular/material';
 import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 
 import { DatePickerModule } from '@app/components/date-picker';
-import { MatButtonModule } from '@angular/material';
 import { MedicalExaminationComponent } from './medical-examination.component';
 import { MedicalExaminationModalComponent } from './medical-examination-modal/medical-examination-modal.component';
 import { MedicalExaminationRoutingModule } from './medical-examination.routing';
@@ -19,7 +19,8 @@ import { TableModule } from '@app/components/table';
     ModalModule,
     MatButtonModule,
     DatePickerModule,
-    MedicalExaminationRoutingModule
+    MedicalExaminationRoutingModule,
+    MatCardModule
   ],
   declarations: [MedicalExaminationComponent, MedicalExaminationModalComponent],
   entryComponents: [MedicalExaminationModalComponent],

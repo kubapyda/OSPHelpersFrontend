@@ -1,2 +1,21 @@
-<app-table [config]="tableConfiguration" [dataSource]="tableData" [tableWidth]="'700px'"></app-table>
-<app-pagination [config]="paginationConfig" (page)="changePage($event)"></app-pagination>
+<ng-container *appHasAnyAuthority="'ADMIN'">
+    <app-table [config]="tableConfiguration" [dataSource]="tableData" [tableWidth]="'700px'"></app-table>
+    <app-pagination [config]="paginationConfig" (page)="changePage($event)"></app-pagination>
+</ng-container>
+
+<ng-container *appHasAnyAuthority="'USER'">
+    <mat-card class="mb-3 medical-examination-details">
+      <mat-card-content>
+        <p>
+          <span translate="medicalExamination.status"></span>:
+          <span class="text-bold">
+            <span class="actual" translate="medicalExamination.actual" *ngIf="firefighterEndDate.isActual"></span>
+            <span class="not-actual" translate="medicalExamination.notActual" *ngIf="!firefighterEndDate.isActual"></span>
+          </span>
+        </p>
+        <p><span translate="medicalExamination.endMedicalExaminationDate"></span>: <span class="text-bold" [innerText]="firefighterEndDate.to"></span></p>
+        <p> <span translate="medicalExamination.remained"></span>: <span class="text-bold" [innerText]="firefighterEndDate.remained"></span></p>
+      </mat-card-content>
+    </mat-card>
+    <app-table [config]="tableConfiguration" [dataSource]="tableData" [tableWidth]="'700px'"></app-table>
+</ng-container>

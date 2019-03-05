@@ -4,6 +4,7 @@ export class MenuPosition {
   translation: string;
   link: string;
   icon: string;
+  permision: string | string[];
   isVisible?: boolean;
 
   constructor() {

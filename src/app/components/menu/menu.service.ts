@@ -38,6 +38,11 @@ export class MenuService {
     return this;
   }
 
+  setPermision(permisions: string | string[]) {
+    this.menuPosition.permision = permisions;
+    return this;
+  }
+
   clearMenu() {
     this.menu = [];
   }

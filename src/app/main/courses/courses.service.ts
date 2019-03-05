@@ -24,6 +24,10 @@ export class CoursesService {
     return this.http.get(`${this.requestUrl}/${id}/${type}`);
   }
 
+  findFirefighterCourses(id: number): Observable<any> {
+    return this.http.get(`${this.requestUrl}/${id}`);
+  }
+
   save(data: Object): Observable<any> {
     return this.http.post(this.requestUrl, data);
   }

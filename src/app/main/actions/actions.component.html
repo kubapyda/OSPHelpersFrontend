@@ -1,7 +1,7 @@
-<div class="mb-3">
+<div class="mb-3" *appHasAnyAuthority="'ADMIN'">
   <button mat-raised-button class="primary" (click)="openAddDialog()">
     <span translate="actions.action.add"></span>
   </button>
 </div>
-<app-table [dataSource]="tableData" [config]="tableConfig" (editAction)="openEditDialog($event)" (deleteAction)="openDeleteDialog($event)"></app-table>
+<app-table [dataSource]="tableData" [config]="tableConfig"></app-table>
 

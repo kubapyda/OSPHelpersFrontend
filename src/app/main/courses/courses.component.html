@@ -1,1 +1,6 @@
-<app-table [dataSource]="tableData" [config]="tableConfig"></app-table>
+<ng-container *appHasAnyAuthority="'ADMIN'">
+  <app-table [dataSource]="tableData" [config]="tableConfig"></app-table>
+</ng-container>
+<ng-container *appHasAnyAuthority="'USER'">
+  <app-table [dataSource]="tableData" [config]="tableConfig"></app-table>
+</ng-container>

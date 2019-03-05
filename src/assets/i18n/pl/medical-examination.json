@@ -5,6 +5,10 @@
     "endMedicalExaminationDate": "Koniec obowiązywania badań lekarskich",
     "medicalExaminationModalLabel": "Historia, oraz dodawanie badań",
     "ordinalNumber": "Lp.",
+    "status": "Status",
+    "remained": "Pozostała ważność badań",
+    "actual": "AKTUALNE",
+    "notActual": "NIEAKTUALNE",
     "msg": {
       "create": {
         "success": "Pomyślnie dodano nowy termin obowiązywania badań dla strażaka {{name}}",

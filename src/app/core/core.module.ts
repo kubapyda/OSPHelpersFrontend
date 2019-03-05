@@ -9,6 +9,7 @@ import { AuthInterceptor } from './auth/auth-interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { EnumService } from './enum/enum.service';
+import { Principal } from './auth/principal.service';
 import { RouterModule } from '@angular/router';
 import { ServiceLocator } from './locator.service';
 import { ToastrModule } from 'ngx-toastr';
@@ -37,6 +38,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     TranslateResolver,
     AppToastrService,
     EnumService,
+    Principal,
     UserAccessGuard,
     {
       provide: HTTP_INTERCEPTORS,

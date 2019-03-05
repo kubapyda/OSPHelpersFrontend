@@ -1,7 +1,7 @@
+import { MatButtonModule, MatCardModule } from '@angular/material';
 import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 
 import { DatePickerModule } from '@app/components/date-picker';
-import { MatButtonModule } from '@angular/material';
 import { ModalModule } from '@app/components/modal';
 import { PaginationModule } from './../../components/pagination/pagination.module';
 import { PaymentsComponent } from './payments.component';
@@ -19,6 +19,7 @@ import { TableModule } from '@app/components/table';
     ModalModule,
     DatePickerModule,
     MatButtonModule,
+    MatCardModule,
     PaymentsRoutingModule
   ],
   declarations: [PaymentsComponent, PaymentsModalComponent],

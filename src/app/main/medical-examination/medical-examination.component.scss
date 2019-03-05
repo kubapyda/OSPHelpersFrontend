@@ -1,0 +1,12 @@
+.medical-examination-details {
+  width: 652px;
+  .text-bold {
+    font-weight: bold;
+    .actual {
+      color: #24d539;
+    }
+    .not-actual {
+      color: #b71427;
+    }
+  }
+}

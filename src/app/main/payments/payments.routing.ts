@@ -3,12 +3,15 @@ import { Route, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { PaymentsComponent } from './payments.component';
 import { TranslateResolver } from '@app/core/language';
+import { UserAccessGuard } from '@app/core/auth';
 
 const route: Route = {
   path: '',
   component: PaymentsComponent,
+  canActivate: [UserAccessGuard],
   data: {
-    i18n: ['payments']
+    i18n: ['payments'],
+    role: ['ADMIN', 'USER']
   },
   resolve: {
     translation: TranslateResolver
