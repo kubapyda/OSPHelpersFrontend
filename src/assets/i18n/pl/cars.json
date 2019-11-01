@@ -16,6 +16,15 @@
     "productionDate": "Data produkcji",
     "operationNumber": "Numer operacyjny",
     "equipmentOrPurpose": "Wyposażenie / Przeznaczenie",
+    "waterTankCapacity": "Pojemność zbiornika wodnego",
+    "foamTankCapacity": "Pojemność zbiornika pianotwórczego",
+    "autopompePerformance": "Wydajność autopompy",
+    "motopompePerformance": "Wydajność motompompy",
+    "autopompeOrMotopmePerformance": "Wydajność autopompy/motopompy",
+    "carType": "Typ samochodu",
+    "carMileage": "Przebieg samochodu",
+    "capacityInCubicMeters": "Pojemność wyrażona w metrach sześciennych",
+    "pompePerformanceTooltip": "Ilość pompowanego płynu wyrażona w hektolitrach na minutę przy ciśnieniu roboczym 8 bar",
     "delete": {
       "title": "Usuń samochód",
       "question": "Czy jesteś pewny że samochód {{name}} ma zostać usunięty?"

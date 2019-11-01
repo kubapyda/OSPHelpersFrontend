@@ -123,7 +123,8 @@ export class ActionsModalComponent implements OnInit {
           date: ['', [Validators.required]],
           time: ['', [Validators.required]],
           kind: ['', [Validators.required]],
-          eventAddress: ['', [Validators.required]]
+          eventAddress: ['', [Validators.required]],
+          reportNumber: ['', [Validators.required]]
       });
   }
 

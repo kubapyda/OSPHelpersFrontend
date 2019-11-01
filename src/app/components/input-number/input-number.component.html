@@ -1,0 +1,3 @@
+<mat-form-field class="modal-input" [matTooltip]="translateTooltip | translate" matTooltipPosition="left">
+  <input matInput [(ngModel)]="inputValue" [placeholder]="translateKey | translate" (keypress)="onKeyPress($event)" (keyup)="onKeyUpEvt($event)" autocomplete="off">
+</mat-form-field>

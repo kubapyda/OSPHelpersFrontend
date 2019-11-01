@@ -44,6 +44,11 @@ body {
   font-weight: 600;
 }
 
+.mat-tooltip {
+  font-size: 14px;
+  text-align: center;
+}
+
 .primary {
   @include buttons(#c63d0f);
 }

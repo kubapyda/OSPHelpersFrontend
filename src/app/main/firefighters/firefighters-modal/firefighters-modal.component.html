@@ -25,7 +25,7 @@
         </div>
         <div class="col-6">
           <mat-form-field class="modal-input">
-            <mat-select formControlName="type" [placeholder]="'firefighters.type' | translate" (ngModelChange)="changeFirefighterType()">
+            <mat-select formControlName="type" [placeholder]="'firefighters.type' | translate">
               <mat-option *ngFor="let type of types" [value]="type.value">
                 <span [translate]="type.nlsCode"></span>
               </mat-option>
@@ -33,15 +33,6 @@
           </mat-form-field>
         </div>
       </div>
-
-      <div class="row" *ngIf="selectedFirefighterType === 'JOT'">
-          <div class="col-6">
-            <app-date-picker formControlName="courseCompletitionDate" placeholder="firefighters.courseCompletitionDate"></app-date-picker>
-          </div>
-          <div class="col-6">
-            <app-date-picker formControlName="medicalExaminationDate" placeholder="firefighters.medicalExaminationDate"></app-date-picker>
-          </div>
-        </div>
 
       <div class="row">
         <div class="col-6">

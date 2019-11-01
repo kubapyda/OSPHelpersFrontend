@@ -8,7 +8,7 @@ import {
   TasksCar
 } from '@app/shared/enums';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AppToastrService } from '@app/core/toastr';
 import { CarsService } from '../cars.service';
@@ -28,6 +28,7 @@ export class CarsModalComponent implements OnInit {
   specialCarsPurpose: Array<SelectDictionary>;
   extinguishingEquipment: Array<SelectDictionary>;
   selectedCarTask: string;
+  selectEdextinguishingEquipment: string;
 
   constructor(
     private fb: FormBuilder,
@@ -58,12 +59,15 @@ export class CarsModalComponent implements OnInit {
     this.selectedCarTask = this.carsForm.get('taskCar').value;
   }
 
+  changeExtinguishingEquipment(): void {
+    this.selectEdextinguishingEquipment = this.carsForm.get('extinguishingEquipment').value;
+  }
+
   save(): void {
-    const carObj = this.prepareCarObject();
     if (this.data.id) {
-      this.updateCar(carObj);
+      this.updateCar(this.carsForm.value);
     } else {
-      this.saveCar(carObj);
+      this.saveCar(this.carsForm.value);
     }
   }
 
@@ -114,32 +118,39 @@ export class CarsModalComponent implements OnInit {
             insuranceDate: car.insuranceDate,
             specialCarsPurpose: car.specialCarsPurpose,
             extinguishingEquipment: car.extinguishingEquipment,
+            waterTankCapacity: car.waterTankCapacity,
+            foamTankCapacity: car.foamTankCapacity,
+            autopompePerformance: car.autopompePerformance,
+            motopompePerformance: car.motopompePerformance,
+            carType: car.carType,
+            carMileage: car.carMileage
           });
+          this.changeExtinguishingEquipment();
         });
     }
   }
 
-  private prepareCarObject() {
-    if (this.carsForm.get('taskCar').value === 'SPECIAL') {
-      return _.omit(this.carsForm.value, ['extinguishingEquipment']);
-    }
-    return _.omit(this.carsForm.value, ['specialCarsPurpose']);
-  }
-
   private createCarsForm(): FormGroup {
     return this.fb.group({
-      mark: [''],
-      model: [''],
-      registrationNumber: [''],
-      productionDate: [''],
-      operationNumber: [''],
-      taskCar: [''],
-      carWeight: [''],
+      mark: ['', [Validators.required]],
+      model: ['', [Validators.required]],
+      registrationNumber: ['', [Validators.required]],
+      productionDate: ['', [Validators.required]],
+      operationNumber: ['', [Validators.required]],
+      taskCar: ['', [Validators.required]],
+      carWeight: ['', [Validators.required]],
       technicalExaminationDate: [''],
       insuranceDate: [''],
-      specialCarsPurpose: [''],
-      extinguishingEquipment: [''],
-      equipmentOrPurpose: [{ value: null, disabled: true }]
+      specialCarsPurpose: [null],
+      extinguishingEquipment: [null],
+      equipmentOrPurpose: [{ value: null, disabled: true }],
+      waterTankCapacity: ['', [Validators.required]],
+      foamTankCapacity: ['', [Validators.required]],
+      autopompeOrMotopompePerformance: [{ value: null, disabled: true }],
+      autopompePerformance: [null],
+      motopompePerformance: [null],
+      carType: ['', [Validators.required]],
+      carMileage: ['']
     });
   }
 }

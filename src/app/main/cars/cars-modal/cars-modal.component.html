@@ -48,7 +48,8 @@
             <input matInput formControlName="equipmentOrPurpose" [placeholder]="'cars.equipmentOrPurpose' | translate">
           </mat-form-field>
           <mat-form-field class="modal-input" *ngIf="selectedCarTask === 'FIREFIGHTING'">
-            <mat-select formControlName="extinguishingEquipment" [placeholder]="'cars.equipmentName' | translate">
+            <mat-select formControlName="extinguishingEquipment" [placeholder]="'cars.equipmentName' | translate"
+              (ngModelChange)="changeExtinguishingEquipment()">
               <mat-option *ngFor="let element of extinguishingEquipment" [value]="element.value">
                 <span [translate]="element.nlsCode"></span>
               </mat-option>
@@ -74,10 +75,42 @@
       </div>
       <div class="row">
         <div class="col-6">
-          <app-date-picker formControlName="technicalExaminationDate" placeholder="cars.technicalExaminationDate"></app-date-picker>
+          <app-date-picker *ngIf="!data.id" formControlName="technicalExaminationDate" placeholder="cars.technicalExaminationDate"></app-date-picker>
         </div>
         <div class="col-6">
-          <app-date-picker formControlName="insuranceDate" placeholder="cars.insuranceDate"></app-date-picker>
+          <app-date-picker *ngIf="!data.id" formControlName="insuranceDate" placeholder="cars.insuranceDate"></app-date-picker>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <app-input-number formControlName="waterTankCapacity" translateKey="cars.waterTankCapacity" translateTooltip="cars.capacityInCubicMeters"></app-input-number>
+        </div>
+        <div class="col-6">
+          <app-input-number formControlName="foamTankCapacity" translateKey="cars.foamTankCapacity" translateTooltip="cars.capacityInCubicMeters"></app-input-number>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field *ngIf="!selectEdextinguishingEquipment" class="modal-input" [matTooltip]="'cars.pompePerformanceTooltip' | translate"
+            matTooltipPosition="left">
+            <input matInput formControlName="autopompeOrMotopompePerformance" [placeholder]="'cars.autopompeOrMotopmePerformance' | translate"
+              (keypress)="onKeyPress($event)">
+          </mat-form-field>
+          <app-input-number *ngIf="selectEdextinguishingEquipment === 'AUTOPOMPE'" formControlName="autopompePerformance"
+            translateKey="cars.autopompePerformance" translateTooltip="cars.pompePerformanceTooltip"></app-input-number>
+          <app-input-number *ngIf="selectEdextinguishingEquipment === 'MOTOPOMPA'" formControlName="motopompePerformance"
+            translateKey="cars.motopompePerformance" translateTooltip="cars.pompePerformanceTooltip"></app-input-number>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="modal-input">
+            <input matInput formControlName="carType" [placeholder]="'cars.carType' | translate">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <app-input-number *ngIf="!data.id" formControlName="carMileage" translateKey="cars.carMileage"></app-input-number>
         </div>
       </div>
     </div>

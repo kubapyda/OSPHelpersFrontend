@@ -16,6 +16,12 @@ export class Car {
   carWeight: CarWeight;
   technicalExaminationDate: Date;
   insuranceDate: Date;
-  specialCarsPurpose?: SpecialCarsPurpose;
-  extinguishingEquipment?: ExtinguishingEquipment;
+  specialCarsPurpose: SpecialCarsPurpose;
+  extinguishingEquipment: ExtinguishingEquipment;
+  waterTankCapacity: number;
+  foamTankCapacity: number;
+  autopompePerformance: number;
+  motopompePerformance: number;
+  carType: string;
+  carMileage: number;
 }
